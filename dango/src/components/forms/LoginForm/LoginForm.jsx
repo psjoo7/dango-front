@@ -17,7 +17,7 @@ const LoginForm = ({ className = "" }) => {
 
     try {
       const response = await axios.post(
-        "https://your-backend-url/api/member/login",
+        "http://52.78.153.70//api/member/login",
         {
           userEmail: email,
           userPassword: password,
