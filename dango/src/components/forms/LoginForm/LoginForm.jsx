@@ -1,10 +1,43 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
+import axios from "axios"; // Axios 추가
 import styles from "./LoginForm.module.css";
 import { RegularText } from "../../Texts";
 import TextInput from "../../Inputs/Input/TextInput";
 import { CheckBoxButton, GoogleButton, RegularButton } from "../../Buttons";
 
 const LoginForm = ({ className = "" }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // 로그인 API 호출 함수
+  const handleLogin = async (event) => {
+    event.preventDefault(); // 폼 기본 제출 동작 방지
+
+    try {
+      const response = await axios.post(
+        "https://your-backend-url/api/member/login",
+        {
+          userEmail: email,
+          userPassword: password,
+        },
+        {
+          withCredentials: true, // 쿠키나 세션 정보를 함께 전송
+        }
+      );
+
+      console.log("로그인 성공:", response.data);
+      // 로그인 성공 시 처리
+    } catch (error) {
+      console.error(
+        "로그인 실패:",
+        error.response ? error.response.data : error.message
+      );
+      setErrorMessage("로그인에 실패했습니다. 다시 시도해주세요.");
+    }
+  };
+
   return (
     <div className={[styles.formWrapper, className].join(" ")}>
       <div className={styles.loginForm}>
@@ -35,11 +68,21 @@ const LoginForm = ({ className = "" }) => {
           textComponentFlex="unset"
         />
       </div>
-      <form className={styles.inputFields}>
-        <TextInput inputLabel="이메일" propMinWidth="unset" propWidth="54px" />
+      <form className={styles.inputFields} onSubmit={handleLogin}>
+        <TextInput
+          inputLabel="이메일"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} // 이메일 입력값 업데이트
+          propMinWidth="unset"
+          propWidth="54px"
+        />
         <div className={styles.passwordField}>
           <div className={styles.passwordInputWrapper}>
-            <TextInput inputLabel="비밀번호" />
+            <TextInput
+              inputLabel="비밀번호"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} // 비밀번호 입력값 업데이트
+            />
             <div className={styles.options}>
               <CheckBoxButton />
               <div className={styles.forgotPasswordLinkWrapper}>
@@ -69,6 +112,7 @@ const LoginForm = ({ className = "" }) => {
                 propFontSize="18px"
                 propFlex="unset"
                 buttonComponentHeight="unset"
+                type="submit" // 버튼을 제출 버튼으로 설정
               />
               <GoogleButton />
             </div>
@@ -78,11 +122,7 @@ const LoginForm = ({ className = "" }) => {
           </div>
         </div>
       </form>
-      <div className={styles.buttoncomponent}>
-        <div className={styles.buttontext}>
-          이메일을 입력하신 뒤 다시 버튼을 눌러주세요
-        </div>
-      </div>
+      {errorMessage && <div className={styles.error}>{errorMessage}</div>}
     </div>
   );
 };
