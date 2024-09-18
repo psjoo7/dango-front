@@ -18,7 +18,7 @@ const Home = () => {
   };
 
   const goToLoginPage = () => {
-    navigate("/login");
+    navigate("/member/login");
   };
   return (
     <div>
