@@ -1,0 +1,36 @@
+.checkbox {
+  margin: 0;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  border-radius: var(--br-8xs);
+  border: 1px solid var(--color3);
+  box-sizing: border-box;
+}
+.checkboxlabel {
+  height: 13px;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  min-width: 88px;
+  white-space: nowrap;
+}
+.checkboxcomponent,
+.rememberMeLabelWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rememberMeLabelWrapper {
+  flex-direction: column;
+  padding: var(--padding-9xs-5) 0 0;
+}
+.checkboxcomponent {
+  flex-direction: row;
+  gap: var(--gap-5xs);
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color1);
+  font-family: var(--font-noto-sans);
+}

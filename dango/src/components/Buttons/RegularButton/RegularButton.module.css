@@ -1,0 +1,29 @@
+.buttoncomponent,
+.buttontext {
+  display: flex;
+  justify-content: center;
+}
+.buttontext {
+  height: 12px;
+  position: relative;
+  font-size: var(--font-size-base-9);
+  font-family: var(--font-noto-sans);
+  color: var(--color);
+  text-align: center;
+  align-items: center;
+  min-width: 63px;
+}
+.buttoncomponent {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-xl-5) var(--padding-xl);
+  background-color: var(--color2);
+  width: 281px;
+  border-radius: var(--br-smi);
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.buttoncomponent:hover {
+  background-color: var(--color-darkslategray);
+}

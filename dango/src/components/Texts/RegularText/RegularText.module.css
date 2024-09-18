@@ -1,0 +1,18 @@
+.text {
+  height: 11px;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.textcomponent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: var(--font-size-base);
+  color: var(--color2);
+  font-family: var(--font-noto-sans);
+}

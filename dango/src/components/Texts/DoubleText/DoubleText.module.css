@@ -1,0 +1,42 @@
+.text1,
+.text2 {
+  height: 64px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.text1 {
+  width: auto;
+  min-width: auto;
+}
+.text2 {
+  width: auto; /* 너비를 자동으로 설정 */
+  max-width: 100%; /* 최대 너비를 100%로 설정 */
+}
+.textdoublecomponent {
+  width: 3000px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  max-width: 100%;
+  z-index: 4;
+  text-align: left;
+  font-size: 90px; /* 기본 폰트 크기 */
+  color: var(--color1);
+  font-family: var(--font-noto-sans);
+  flex-wrap: nowrap; /* flex-wrap을 없애 한 줄로 유지 */
+}
+@media screen and (max-width: 950px) {
+  .text1,
+  .text2 {
+    font-size: var(--font-size-26xl); /* 작은 화면에서도 크기 조정 */
+  }
+}
+@media screen and (max-width: 450px) {
+  .text1,
+  .text2 {
+    font-size: var(--font-size-8xl); /* 아주 작은 화면에서의 크기 */
+  }
+}

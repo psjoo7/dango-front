@@ -1,0 +1,96 @@
+.forgotPasswordLinkWrapper,
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.loginForm {
+  width: 249px;
+  padding: 0 var(--padding-xl) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-lgi);
+}
+.forgotPasswordLinkWrapper {
+  padding: var(--padding-10xs) 0 0;
+}
+.options {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.actions,
+.passwordInputWrapper {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.actions {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--gap-lgi);
+}
+.passwordInputWrapper {
+  gap: var(--gap-5xl);
+}
+.inputFields,
+.passwordField,
+.passwordInputWrapper,
+.registerLinkWrapper {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+}
+.registerLinkWrapper {
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-xl);
+}
+.inputFields,
+.passwordField {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-18xl);
+}
+.inputFields {
+  margin: 0;
+  padding: 0 0 var(--padding-lg);
+  gap: var(--gap-9xl);
+}
+.buttontext {
+  height: 13px;
+  flex: 1;
+  position: relative;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+.buttoncomponent,
+.formWrapper {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.buttoncomponent {
+  border-radius: var(--br-smi);
+  background-color: var(--color1);
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-9xl);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+.formWrapper {
+  flex-direction: column;
+  gap: var(--gap-18xl);
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--color);
+  font-family: var(--font-noto-sans);
+}

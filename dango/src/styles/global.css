@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  /* fonts */
+  --font-noto-sans: "Noto Sans";
+
+  /* font sizes */
+  --font-size-lg: 18px;
+  --font-size-base: 16px;
+  --font-size-xl: 20px;
+  --font-size-lgi: 19px;
+  --font-size-21xl: 40px;
+  --font-size-5xl: 24px;
+  --font-size-13xl: 32px;
+  --font-size-6xl: 25px;
+  --font-size-8xl: 27px;
+  --font-size-3xl: 22px;
+  --font-size-41xl: 60px;
+  --font-size-17xl: 36px;
+  --font-size-29xl: 48px;
+  --font-size-base-9: 17px;
+  --font-size-mini-1: 14.1px;
+  --font-size-sm-1: 13.1px;
+  --font-size-27xl-9: 46.9px;
+  --font-size-9xl: 28px;
+  --font-size-19xl: 38px;
+  --font-size-71xl: 90px;
+  --font-size-26xl: 45px;
+  --font-size-16xl: 35px;
+  --font-size-11xl: 30px;
+  --font-size-31xl: 50px;
+
+  /* font sizes -- 수정 후 */
+  --font-large-title: 32px;
+  --font-title1: 26px;
+  --font-title2: 22px;
+  --font-title3: 20px;
+  --font-body1: 18px;
+  --font-body2: 16px;
+  --font-body3: 13px;
+  --font-caption: 12px;
+
+  /* Colors */
+  --color: #fff;
+  --color1: #000;
+  --color2: #adb3bb;
+  --color3: #6b7685;
+  --color-darkslategray: #333;
+  --color4: #d9d9d9;
+  --color-red: #ff0000;
+  /* Colors -- 수정 후 */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-main: #f9d67b;
+  --color-gray1: #d9d9d9;
+  --color-gray2: #adb3bb;
+  --color-gray3: #6b7685;
+  --color-damgoIvory: #fffff0;
+  --color-dangoPink: #ffc0cb;
+  --color-dangoGreen: #4caf50;
+  --color-tomato: #ff6347;
+  --color-mint: #a5d8a1;
+
+  /* Gaps */
+  --gap-18xl: 37px;
+  --gap-9xl: 28px;
+  --gap-5xl: 24px;
+  --gap-lgi: 19px;
+  --gap-smi: 13px;
+  --gap-xl: 20px;
+  --gap-5xs: 8px;
+  --gap-xs: 12px;
+  --gap-xs-5: 11.5px;
+  --gap-61xl: 80px;
+  --gap-21xl: 40px;
+  --gap-9xs: 4px;
+  --gap-12xl: 31px;
+  --gap-mini: 15px;
+  --gap-16xl-6: 35.6px;
+  --gap-lg: 18px;
+  --gap-7xl-2: 26.2px;
+  --gap-18xl-1: 37.1px;
+  --gap-7xl-1: 26.1px;
+  --gap-lg-1: 18.1px;
+  --gap-7xs: 6px;
+  --gap-8xl-2: 27.2px;
+  --gap-12xs-3: 0.3px;
+  --gap-mini-2: 14.2px;
+  --gap-xs-3: 11.3px;
+  --gap-mini-1: 14.1px;
+  --gap-14xl: 33px;
+  --gap-base: 16px;
+  --gap-xs-4: 11.4px;
+  --gap-7xl: 26px;
+  --gap-12xs-4: 0.4px;
+  --gap-11xs: 2px;
+  --gap-113xl: 132px;
+  --gap-59xl: 78px;
+  --gap-20xl: 39px;
+
+  /* Paddings */
+  --padding-lg: 18px;
+  --padding-9xl: 28px;
+  --padding-xl: 20px;
+  --padding-5xs: 8px;
+  --padding-6xs: 7px;
+  --padding-10xs: 3px;
+  --padding-9xs-5: 3.5px;
+  --padding-82xl: 101px;
+  --padding-81xl: 100px;
+  --padding-45xl-5: 64.5px;
+  --padding-31xl: 50px;
+  --padding-47xl: 66px;
+  --padding-23xl: 42px;
+  --padding-lgi: 19px;
+  --padding-xl-5: 20.5px;
+  --padding-10xs-4: 2.4px;
+  --padding-11xs: 2px;
+  --padding-4xs-8: 8.8px;
+  --padding-mini-3: 14.3px;
+  --padding-6xl: 25px;
+  --padding-mini-2: 14.2px;
+  --padding-21xl: 40px;
+  --padding-4xs: 9px;
+  --padding-3xl: 22px;
+  --padding-4xl: 23px;
+  --padding-489xl: 508px;
+  --padding-123xl: 142px;
+  --padding-28xl-5: 47.5px;
+
+  /* Border radiuses */
+  --br-smi: 13px;
+  --br-8xs: 5px;
+  --br-31xl: 50px;
+  --br-3xs-4: 9.4px;
+  --br-smi-2: 12.2px;
+  --br-11xl: 30px;
+
+  /* Effects */
+  --effect: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}

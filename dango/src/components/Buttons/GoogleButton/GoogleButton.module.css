@@ -1,0 +1,42 @@
+.googlelogoIcon {
+  height: 28px;
+  width: 28px;
+  position: relative;
+}
+.google,
+.signInWith {
+  font-size: var(--font-size-lg);
+  font-family: var(--font-noto-sans);
+}
+.google {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+}
+.googletext {
+  height: 14px;
+  position: relative;
+  color: var(--color2);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.buttongooglecomponent,
+.googletextWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-6xs) 0 0;
+}
+.buttongooglecomponent {
+  cursor: pointer;
+  border: 1px solid var(--color3);
+  padding: var(--padding-5xs) var(--padding-xl);
+  background-color: transparent;
+  align-self: stretch;
+  border-radius: var(--br-smi);
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--gap-smi);
+}

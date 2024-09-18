@@ -1,0 +1,71 @@
+/* .signIn {
+  text-decoration: none;
+  position: absolute;
+  top: 675px;
+  left: 390.3px;
+  font-weight: 700;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 56px;
+  height: 48px;
+} */
+.branding {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 23px;
+}
+.backgroundIcon,
+.content {
+  /* position: absolute; */
+  max-width: 100%;
+}
+.content {
+  /* top: 155px;
+  left: 221px; */
+  width: 394px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 70.1px;
+}
+.backgroundIcon {
+  /* height: 78.7%;
+  width: 44.27%; */
+  /* top: 10.65%;
+  right: 12.71%;
+  bottom: 10.65%;
+  left: 43.02%; */
+  /* overflow: hidden; */
+  /* max-height: 100%; */
+  /* object-fit: cover; */
+}
+.loginscreen {
+  /* 추가코드  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+
+  width: 100%;
+  height: 100%;
+  /* position: relative; */
+  background-color: var(--color);
+  overflow: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color);
+  font-family: var(--font-noto-sans);
+}
+@media screen and (max-width: 450px) {
+  .loginscreen {
+    height: auto;
+    min-height: 1080;
+  }
+}
