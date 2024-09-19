@@ -71,7 +71,7 @@ const LoginForm = ({ className = "" }) => {
       <form className={styles.inputFields} onSubmit={handleLogin}>
         <TextInput
           inputLabel="이메일"
-          value={email}
+          value={email} // 상태값 전달
           onChange={(e) => setEmail(e.target.value)} // 이메일 입력값 업데이트
           propMinWidth="unset"
           propWidth="54px"
