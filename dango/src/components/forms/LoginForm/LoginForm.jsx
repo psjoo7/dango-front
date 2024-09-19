@@ -19,8 +19,8 @@ const LoginForm = ({ className = "" }) => {
       const response = await axios.post(
         "https://scit45dango.site/api/member/login", // URL을 HTTPS로 변경
         {
-          userEmail: email,
-          userPassword: password,
+          userEmail: email, // 상태값이 제대로 들어왔는지 확인
+          userPassword: password, // 상태값이 제대로 들어왔는지 확인
         },
         {
           withCredentials: true, // 쿠키나 세션 정보를 함께 전송
