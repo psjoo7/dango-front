@@ -14,7 +14,7 @@ const LoginForm = ({ className = "" }) => {
   // 로그인 API 호출 함수
   const handleLogin = async (event) => {
     event.preventDefault(); // 폼 기본 제출 동작 방지
-
+    console.log(email, password);
     try {
       const response = await axios.post(
         "https://scit45dango.site/api/member/login", // URL을 HTTPS로 변경
