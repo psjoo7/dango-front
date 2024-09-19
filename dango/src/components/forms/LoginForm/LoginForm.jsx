@@ -17,7 +17,7 @@ const LoginForm = ({ className = "" }) => {
 
     try {
       const response = await axios.post(
-        "https://scit45dango.site/api/member/login", // URL을 HTTPS로 변경
+        "https://www.scit45dango.site/api/member/login", // URL을 HTTPS로 변경
         {
           userEmail: email,
           userPassword: password,
