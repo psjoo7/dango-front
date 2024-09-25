@@ -13,6 +13,9 @@ const LoginPageForm = () => {
   const [resetPasswordText, setResetPasswordText] = useState(""); // 버튼 텍스트 상태
   const [showResetButton, setShowResetButton] = useState(false); // 버튼 노출 여부 상태
 
+  const goToHomePage = () => {
+    navigate("/home");
+  };
   // form submit 핸들러
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -20,9 +23,6 @@ const LoginPageForm = () => {
     const formData = {
       userEmail: email,
       userPassword: password, // 비밀번호도 함께 전송
-    };
-    const goToHomePage = () => {
-      navigate("/home");
     };
 
     try {
@@ -125,6 +125,7 @@ const LoginPageForm = () => {
           propBorderRadius={"15px"}
           propFontSize={"var(--font-body1)"}
           propFontWeight={"700"}
+          onClick={handleSubmit}
         />
       </div>
 
