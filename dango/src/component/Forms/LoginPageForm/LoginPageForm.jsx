@@ -18,8 +18,8 @@ const LoginPageForm = () => {
     event.preventDefault();
 
     const formData = {
-      email: email,
-      password: password, // 비밀번호도 함께 전송
+      userEmail: email,
+      userPassword: password, // 비밀번호도 함께 전송
     };
     const goToHomePage = () => {
       navigate("/home");
