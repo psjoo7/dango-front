@@ -1,0 +1,24 @@
+.rankingList{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.list{
+    width: 245px;
+    height: 63px;
+    padding: 0px 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 22.189px;
+    border: 3px solid var(--color-black);
+    background: var(--color-white);
+    box-sizing: border-box;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

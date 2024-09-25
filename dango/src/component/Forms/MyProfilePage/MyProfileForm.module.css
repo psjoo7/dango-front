@@ -1,0 +1,47 @@
+.page{
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 1790px;
+    height: 1080px;
+    padding: 130px 95px;
+    gap: 78px;
+    box-sizing: border-box;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: row;
+    gap: 93px;
+    align-items: center;
+}
+
+
+.bottomCard2{
+    display: flex;
+    flex-direction: row;
+    gap: 78px;
+}
+
+.bottomGameInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.buttonGame {
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 기본 그림자 */
+}
+
+.buttonGame:hover {
+    transform: translateY(-5px); /* hover 시 위로 5px 이동 */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* hover 시 더 큰 그림자 */
+}

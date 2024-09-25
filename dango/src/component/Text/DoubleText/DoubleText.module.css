@@ -1,0 +1,40 @@
+.text1,
+.text2 {
+    height: fit-content;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 설정 */
+}
+
+.textdoublecomponent {
+    margin: 0;
+    padding: 0;
+    height: auto; /* 자동 높이 설정 */
+    width: fit-content; /* 글씨 크기에 맞는 폭 설정 */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    text-align: left;
+    color: black;
+    flex-wrap: nowrap; /* 한 줄로 유지 */
+    white-space: nowrap; /* 내부 텍스트 줄바꿈 방지 */
+    line-height: 1; /* 글씨 높이와 컨테이너 높이를 일치시킴 */
+    /* gap 속성은 JSX에서 동적으로 처리함 */
+    font-family: var(--font-noto-sans);
+}
+
+@media screen and (max-width: 950px) {
+    .text1,
+    .text2 {
+        font-size: var(--font-size-26xl); /* 작은 화면에서의 크기 */
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .text1,
+    .text2 {
+        font-size: var(--font-size-8xl); /* 더 작은 화면에서의 크기 */
+    }
+}

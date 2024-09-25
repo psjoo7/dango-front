@@ -1,0 +1,53 @@
+.checkboxComponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px; /* 컴포넌트 간 간격 */
+    text-align: left;
+    font-size: var(--font-body3); /* 기본 폰트 사이즈 */
+    color: var(--color-black); /* 기본 텍스트 색상 */
+    font-family: var(--font-noto-sans); /* 기본 폰트 */
+}
+
+.checkbox {
+    margin: 0;
+    position: relative;
+    appearance: none; /* 기본 체크박스 스타일 제거 */
+    -webkit-appearance: none; /* 웹킷 기반 브라우저에서 기본 스타일 제거 */
+    -moz-appearance: none; /* 파이어폭스에서 기본 스타일 제거 */
+    border-radius: 15px; /* 체크박스 둥글게 만들기 */
+    box-sizing: border-box;
+    width: 20px;  /* 기본 체크박스 너비 */
+    height: 20px; /* 기본 체크박스 높이 */
+    border: 2px solid var(--color-gray1); /* 체크박스 테두리 색상 */
+    transition: all 0.3s ease; /* 상태 변화 시 애니메이션 추가 */
+}
+
+.checkboxLabel {
+    position: relative;
+    font-weight: 700; /* 기본 폰트 굵기 */
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    height: 20px; /* 라벨 높이 */
+    font-size: inherit; /* 부모 폰트 크기 상속 */
+    color: inherit; /* 부모 텍스트 색상 상속 */
+}
+
+/* 체크박스에 포커스가 됐을 때 */
+.checkbox:focus {
+    border-color: black; /* 포커스 시 테두리 색상 변경 */
+    outline: none; /* 포커스 시 기본 아웃라인 제거 */
+}
+
+/* 체크박스를 hover 했을 때 */
+.checkbox:hover {
+    border-color: var(--color-black); /* hover 시 테두리 색상 */
+}
+
+/* 체크박스가 체크된 상태 */
+.checkbox:checked {
+    background-color: var(--color-main); /* 체크 시 배경색 */
+    border-color: var(--color-black); /* 체크 시 테두리 색상 */
+}

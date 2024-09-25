@@ -1,0 +1,61 @@
+.SpeedGameRight{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: fit-content;
+}
+
+.bottom{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.hp1 {
+    border: 3px solid var(--color-black);
+    border-radius: 20px 0 0 20px;
+}
+
+.hp2,
+.hp4
+{
+    border-top: 3px solid var(--color-black);  /* 상단(border-top) */
+    border-bottom: 3px solid var(--color-black);  /* 하단(border-bottom) */
+    border-left: 0;
+    border-right: 0;
+}
+
+.hp3{
+    border: 3px solid var(--color-black);
+}
+
+
+.hp5 {
+    border-radius: 0 20px 20px 0;
+    border: 3px solid var(--color-black);
+}
+
+
+.hp1,
+.hp2,
+.hp3,
+.hp4,
+.hp5{
+    height: 33px;
+    width: 73px;
+    background-color: var(--color-main);
+    box-sizing: border-box;
+}
+
+.hpBar {
+    display: flex;
+}
+
+.hpText{
+    position: absolute;
+    left: -65px;
+}
+

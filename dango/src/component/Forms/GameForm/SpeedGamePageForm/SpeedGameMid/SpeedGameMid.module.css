@@ -1,0 +1,39 @@
+.background{
+    display: flex;
+    flex-direction : column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+.title{
+    width: auto;
+    padding-bottom: 70px;
+}
+
+.count{
+    width: auto;
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+.time{
+    width: auto;
+    display: flex;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+.texts{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.inputText{
+    font-family: var(--font-noto-sans);
+    font-size: 30px;
+    color: var(--color-black);
+    font-weight: 700;
+}

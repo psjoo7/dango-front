@@ -1,0 +1,41 @@
+/* 카드의 3D 회전을 위한 부모 요소 설정 */
+.wordListElement {
+    perspective: 1000px; /* 원근감을 설정하여 3D 효과를 만듭니다 */
+    perspective-origin: center center; /* 원근감의 중심을 요소의 중앙으로 설정합니다 */
+}
+
+/* 카드 컨테이너 설정 */
+.card {
+    width: 1100px; /* 카드의 너비 설정 */
+    height: 120px; /* 카드의 높이 설정 */
+    position: relative; /* 자식 요소의 절대 위치를 기준으로 합니다 */
+    transform-style: preserve-3d; /* 자식 요소들이 3D 공간에서 배치되도록 합니다 */
+    transition: transform 0.6s; /* 회전 애니메이션의 지속 시간 설정 */
+    transform-origin: center center; /* 회전 축을 요소의 중심으로 설정합니다 */
+}
+
+/* 카드가 뒤집혔을 때의 상태 */
+.card.flipped {
+    transform: rotateX(180deg); /* X축을 기준으로 180도 회전시킵니다 */
+}
+
+/* 앞면과 뒷면 공통 설정 */
+.front,
+.back {
+    position: absolute; /* 부모 요소를 기준으로 절대 위치에 배치됩니다 */
+    width: 100%; /* 부모의 너비를 가집니다 */
+    height: 100%; /* 부모의 높이를 가집니다 */
+    backface-visibility: hidden; /* 뒤집혔을 때 보이지 않도록 설정합니다 */
+    /* 크로스 브라우저 지원을 위한 벤더 프리픽스 */
+    -webkit-backface-visibility: hidden;
+}
+
+/* 앞면 설정 */
+.front {
+    transform: rotateX(0deg); /* 기본 상태에서 회전 없음 */
+}
+
+/* 뒷면 설정 */
+.back {
+    transform: rotateX(180deg); /* X축을 기준으로 180도 회전하여 뒤집어 놓습니다 */
+}

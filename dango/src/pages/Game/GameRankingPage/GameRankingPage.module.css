@@ -1,0 +1,17 @@
+.backGround{
+    display: flex;
+    width: 1920px;
+    height: 1080px;
+}
+
+.contents{
+    display: flex;
+    padding: 45px 200px;
+    gap: 150px;
+}
+
+.maincharacter{
+    display: flex;
+    align-items: self-end;
+    padding-bottom: 130px;
+}

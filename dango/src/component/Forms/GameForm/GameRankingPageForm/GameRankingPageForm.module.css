@@ -1,0 +1,20 @@
+.backGround{
+    display: flex;
+    width: 1920px;
+    height: 1080px;
+}
+
+.contents{
+    display: flex;
+    width: 1790px;
+    margin: auto 0;
+    gap: 160px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.maincharacter{
+    display: flex;
+    align-items: self-end;
+    padding-bottom: 130px;
+}

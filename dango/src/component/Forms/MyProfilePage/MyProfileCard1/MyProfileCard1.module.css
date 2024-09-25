@@ -1,0 +1,50 @@
+.card{
+    width: 1600px;
+    height: 340px;
+    background-color: var(--color-main);
+    border: 5px solid var(--color-black);
+    border-radius: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    padding: 70px 40px;
+}
+
+
+.profile{
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    height: fit-content;
+}
+
+.profileText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    gap: 60px;
+}
+
+.topText{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.badges{
+    display: flex;
+    gap: 45px;
+}
+
+.badge1,
+.badge2,
+.badge3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+}

@@ -1,0 +1,36 @@
+.rankingTop{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 210px;
+    justify-content: center;
+    align-items: flex-end;
+    border-radius: 22px;
+    border: 3px solid var(--color-black);
+    background: var(--color-white);
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+.textWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    margin: 22px 0;
+}

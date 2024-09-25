@@ -1,0 +1,38 @@
+.homeInCard {
+    display: flex;
+    width: 275px;
+    height: 390px;
+    padding-bottom: 22px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    border: 5px solid var(--color-black);
+    background: var(--color-main);
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* 기본 SVG 스타일 */
+.characterSVG {
+    position: absolute;
+    top: 20px;
+    left: 75px;
+    width: auto;
+    height: auto;
+    transition: all 2s ease-in-out;
+}
+
+/* 마우스를 올렸을 때 SVG 위치 이동 */
+.homeInCard:hover .characterSVG {
+    top: -105px;  /* 30px 아래로 이동 */
+    left: 20px; /* 10px 오른쪽으로 이동 */
+}
+
+.rate {
+    position: absolute;
+    top: -22px;
+    left: 219px;
+}

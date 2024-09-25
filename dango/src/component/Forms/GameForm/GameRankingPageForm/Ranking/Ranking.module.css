@@ -1,0 +1,41 @@
+.top{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: fit-content;
+    padding-bottom: 65px;
+
+}
+
+.mid{
+    width: 406px;
+    height: 713px;
+    background : var(--color-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 22px;
+    margin-bottom: 35px;
+
+}
+
+.list{
+    padding: 26px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.myRanking{
+    position: relative;
+    top: -26px;
+}
+
+.ranking{
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}

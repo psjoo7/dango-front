@@ -1,0 +1,16 @@
+.homeCard3 {
+    display: flex;
+    width: 490px;
+    height: 395px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: 25px;
+    background: var(--color-white);
+
+    /* 홈 카드 그림자 */
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.50);
+    box-sizing: border-box;
+}

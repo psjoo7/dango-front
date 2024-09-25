@@ -1,0 +1,32 @@
+.headContainer {
+    display: flex;
+    width: 1920px;
+    height: 110px;
+    background-color: var(--color-black); /* 배경색을 원하는 색으로 변경 */
+}
+
+.left, .mid, .right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left, .mid, .right {
+    width: 33.33%; /* 각 구역의 넓이를 33.33%로 고정 */
+}
+
+.left {
+    justify-content: flex-start; /* left 구역은 왼쪽 정렬 */
+    padding-left: 30px;
+}
+
+.mid {
+    justify-content: center; /* mid 구역은 중앙 정렬 */
+}
+
+.right {
+    justify-content: flex-end; /* right 구역은 오른쪽 정렬 */
+    padding-right: 30px;
+    gap: 20px; /* 컴포넌트 간의 간격 */
+}

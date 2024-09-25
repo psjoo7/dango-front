@@ -1,0 +1,21 @@
+.radioButtonContainer {
+    display: flex;
+    align-items: center;
+    margin: 0; /* 모든 마진을 없앰 */
+    padding: 0; /* 패딩도 없앰 */
+    font-family: var(--font-noto-sans);
+}
+
+.radioButton {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--color-black); /* 선택된 버튼의 색상 */
+}
+
+.label {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0; /* 라벨에 마진 없앰 */
+}

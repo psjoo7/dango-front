@@ -1,0 +1,51 @@
+.CharacterPartner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.Character{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+.images {
+    position: relative; /* 부모 컨테이너를 기준으로 자식 이미지들이 위치하게 함 */
+    width: 410px; /* 너비를 설정합니다. 이미지 크기에 맞춰 조정하세요 */
+    height: 600px; /* 높이 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.characterImage {
+    position: absolute; /* 절대 위치 설정 */
+    width: 250px; /* Character 이미지 크기 */
+    height: 600px;
+    top: 50%; /* 부모 컨테이너 기준 중앙으로 설정 */
+    left: 50%;
+    transform: translate(-50%, -50%) scaleX(-1); /* 정확히 중앙으로 배치 */
+    z-index: 3; /* 가장 앞에 위치할 이미지 */
+}
+
+.heartImage {
+    position: absolute; /* 절대 위치 설정 */
+    width: 402px; /* Heart 이미지 크기 */
+    height: 352px;
+    top: 50%; /* 부모 컨테이너 기준 중앙으로 설정 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 배치 */
+    z-index: 2; /* 캐릭터보다 뒤에 위치할 이미지 */
+}
+
+.rainImage {
+    position: absolute; /* 절대 위치 설정 */
+    width: 410px; /* Rain 이미지 크기 */
+    height: 375px;
+    top: 50%; /* 부모 컨테이너 기준 중앙으로 설정 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 배치 */
+    z-index: 1; /* 가장 뒤에 위치할 이미지 */
+}

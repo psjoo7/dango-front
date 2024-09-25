@@ -1,0 +1,52 @@
+.backGround {
+    width: 1920px;
+    height: 1080px;
+    background-size: cover; /* 배경 이미지가 요소를 완전히 덮도록 설정 */
+    background-position: center; /* 이미지가 중앙에 위치하도록 설정 */
+    background-repeat: no-repeat; /* 이미지 반복하지 않음 */
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.box{
+    display: flex;
+    width: 1550px;
+    height: 872px;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-shrink: 0;
+
+    border-radius: 50px;
+    border: 7px solid var(--color-black);
+    background: var(--color-main);
+    box-sizing: border-box;
+    margin-left: 130px;
+}
+
+.textBox{
+    width: 700px;
+    height: auto;
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.texts{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 크기와 그림자 변화 애니메이션 */
+}
+
+button:hover {
+    transform: translateY(-5px); /* 위로 5px 이동, 크기를 1.05배로 확대 */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 추가 */
+}

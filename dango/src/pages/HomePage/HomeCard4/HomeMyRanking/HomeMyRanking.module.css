@@ -1,0 +1,19 @@
+.myRanking{
+    width: 300px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border : 3px solid black;
+    padding: 0 19px;
+    border-radius: 18px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.myProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}

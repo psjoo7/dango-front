@@ -1,0 +1,66 @@
+.loginForm{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.logo{
+    width: 395px;
+    display: flex;
+    justify-content: center;
+}
+
+.texts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 70px;
+    padding-bottom: 37px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding-bottom: 25px;
+}
+
+.checkBoxAndSignUp{
+    width: 395px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding-top: 25px;
+    padding-bottom: 37px;
+}
+
+.passwordForget{
+    width: 395px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 55px;
+}
+
+.imageDoubleText{
+    cursor: pointer;
+}
+
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards; /* 0.5초 동안 서서히 나타남 */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

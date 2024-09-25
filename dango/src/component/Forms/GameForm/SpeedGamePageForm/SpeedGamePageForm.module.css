@@ -1,0 +1,24 @@
+.backGround{
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.contents{
+    width: 1790px;
+    height: 100%;
+    left: 130px;
+
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    transition: opacity 0.5s ease;
+}
+
+.middle{
+    position: absolute;
+    top: 300px;
+}

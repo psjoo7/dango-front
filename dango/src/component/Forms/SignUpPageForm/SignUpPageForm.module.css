@@ -1,0 +1,62 @@
+.firstRow,
+.secondRow,
+.thirdRow,
+.fourthRow,
+.fifthRow{
+    width: 515px;
+    display: flex;
+    flex-direction: column;
+    gap : 5px;
+}
+
+.firstRowBlock,
+.secondRowBlock,
+.thirdRowBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.radio{
+    display: flex;
+    align-items: center;
+    gap : 15px;
+}
+
+.radios{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap : 15px;
+    padding: 25px 0 40px;
+    align-self: flex-start; /* 왼쪽 끝으로 붙이기 */
+
+}
+
+.SignUpPageForm{
+    display: flex;
+    flex-direction: column;
+    width: 515px;
+    height: auto;
+    align-items: center;
+}
+
+.top{
+    display: flex;
+    flex-direction: column;
+    width: 515px;
+    height: auto;
+    align-items: center;
+    gap: 20px;
+    padding-top: 26px;
+
+}
+
+.buttons {
+    transition: all 0.3s ease; /* 모든 스타일 변화에 대해 0.3초 동안 부드럽게 전환 */
+}
+
+.buttons:hover {
+    transform: translateY(-5px); /* 마우스를 올렸을 때 살짝 위로 이동 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 마우스를 올렸을 때 그림자 효과 추가 */
+}

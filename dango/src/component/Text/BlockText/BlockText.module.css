@@ -1,0 +1,11 @@
+.text {
+    flex: 1;
+    position: relative;
+    line-height: 40px;
+    font-weight: 600;
+    white-space: pre; /* 명시적으로 줄바꿈 처리를 위해 변경 */
+    word-break: break-word;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}

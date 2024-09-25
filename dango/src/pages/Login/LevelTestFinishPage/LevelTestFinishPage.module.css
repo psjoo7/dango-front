@@ -1,0 +1,8 @@
+.LevelTestFinishPage {
+    display: flex;
+    justify-content: flex-start; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    flex-direction: column; /* 세로로 배치 */
+    width: 1920px; /* 전체 너비 */
+    height: 1080px; /* 전체 높이 */
+}
