@@ -69,6 +69,14 @@ const SideBar = ({
                     propClassName={styles.menuItem}  // 추가 스타일링 가능
                 />
             </div>
+
+            <NavigationMenu
+                propImgFileName={"UnLock.svg"}
+                propAltText={"unlock side bar"}
+                propNavigatePath={"/login"}
+                propClassName={styles.unlock}  // 추가 스타일링 가능
+            />
+
         </div>
     );
 };

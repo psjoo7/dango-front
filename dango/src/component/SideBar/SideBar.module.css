@@ -1,29 +1,34 @@
-.sideBar {
-  width: 130px;
-  height: 1080px;
-  background-color: var(--color-black);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.sideBar{
+    width: 130px;
+    height: 1080px;
+    background-color: var(--color-black);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.logo {
-  padding-top: 40px;
+.logo{
+    padding-top:40px;
 }
 
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  padding-top: 60px;
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 60px;
 }
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-  padding-top: 60px;
+.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding-top: 60px;
+
+}
+
+.unlock{
+   padding-top: 115px;
 }
