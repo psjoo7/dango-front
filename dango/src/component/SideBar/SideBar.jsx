@@ -33,7 +33,7 @@ const SideBar = ({
           propNavigatePath={"my_profile"}
         />
         <DoubleText
-          propText1={propUserName} // 유저 이름 동적으로 받음
+          propText1={userInfo.name} // 유저 이름 동적으로 받음
           propText2={"님"}
           propText1FontSize={"var(--font-body1)"}
           propText2FontSize={"var(--font-body1)"}
