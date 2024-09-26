@@ -11,6 +11,8 @@ const SideBar = ({
   propUserName = "??", // 기본 유저 이름
 }) => {
   const navigate = useNavigate();
+  const userInfo = JSON.parse(localStorage.getItem("user"));
+
   // 로그아웃 함수
   const removeUserInfo = () => {
     axios
