@@ -32,7 +32,7 @@ const LoginPageForm = () => {
       );
 
       console.log("로그인 성공:", response.data);
-      localStorage.setItem("user", response.data);
+      localStorage.setItem("user", JSON.stringify(response.data));
       goToHomePage();
     } catch (error) {
       console.error(

@@ -10,7 +10,7 @@ const SideBar = ({
   propUserName = "??", // 기본 유저 이름
 }) => {
   const navigate = useNavigate();
-  const userInfo = localStorage.getItem("user");
+  const userInfo = JSON.parse(localStorage.getItem("user"));
   console.log(userInfo);
   // 로그아웃 함수
   const removeUserInfo = () => {
