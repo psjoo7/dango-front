@@ -1,41 +1,41 @@
-.homePage{
-    width: 1920px;
-    height: 1080px;
-    display: flex;
-    flex-direction: row;
+.homePage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.contents{
-    display: flex;
-    flex-direction: column;
-    width: 1790px;
-    height: 820px;
-    padding: 67px 0;
-    gap: 35px;
-    align-items: flex-start;
+.contents {
+  display: flex;
+  flex-direction: column;
+  width: 1790px;
+  height: 820px;
+  padding: 67px 0;
+  gap: 35px;
+  align-items: flex-start;
 }
 
-.top{
-    display: flex;
-    gap: 30px;
-    padding-left: 216px;
+.top {
+  display: flex;
+  gap: 30px;
+  padding-left: 216px;
 }
 
 .bottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 53px;
-    padding-left: 174px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 53px;
+  padding-left: 174px;
 }
 
-.bottomMainCard{
-    display: flex;
-    gap: 30px;
+.bottomMainCard {
+  display: flex;
+  gap: 30px;
 }
 
-.sideCard{
-    display: flex;
-    flex-direction: column;
-    gap : 20px
+.sideCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

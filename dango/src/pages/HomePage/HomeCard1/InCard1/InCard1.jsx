@@ -16,12 +16,12 @@ const InCard1 = () => {
       {/* hover 상태에 따라 다른 SVG 렌더링 */}
       {isHovered ? (
         <img
-          src={`${process.env.PUBLIC_URL}/assets/images/HomePage/HomePageCharacter1_w.svg`}
+          src={`${process.env.PUBLIC_URL}/assets/images/HomePage/HomePageCharacterDango1_w.svg`}
           className={styles.characterSVG}
         />
       ) : (
         <img
-          src={`${process.env.PUBLIC_URL}/assets/images/HomePage/HomePageCharacterDango1_w.svg`}
+          src={`${process.env.PUBLIC_URL}/assets/images/HomePage/HomePageCharacter1_w.svg`}
           className={styles.characterSVG}
         />
       )}
