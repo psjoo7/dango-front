@@ -13,7 +13,8 @@ const SideBar = ({
 
   // 로그아웃 함수
   const removeUserInfo = () => {
-    localStorage.removeItem("data"); // 로컬 스토리지에서 "data" 삭제
+    localStorage.removeItem("user"); // 로컬 스토리지에서 "data" 삭제
+    navigate("/member/login");
   };
 
   return (
@@ -79,14 +80,12 @@ const SideBar = ({
       </div>
 
       {/* 로그아웃 버튼 클릭 시 handleLogout 함수 실행 */}
-      <div onClick={removeUserInfo}>
-        <NavigationMenu
-          propImgFileName={"UnLock.svg"}
-          propAltText={"unlock side bar"}
-          propClassName={styles.unlock} // 추가 스타일링 가능
-          propNavigatePath={"/member/login"}
-        />
-      </div>
+      <NavigationMenu
+        propImgFileName={"UnLock.svg"}
+        propAltText={"unlock side bar"}
+        propClassName={styles.unlock} // 추가 스타일링 가능
+        propOnClick={removeUserInfo}
+      />
     </div>
   );
 };
