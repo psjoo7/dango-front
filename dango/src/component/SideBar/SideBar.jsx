@@ -1,4 +1,5 @@
 import styles from "./SideBar.module.css";
+import axios from "axios"; // axios 임포트
 import PropTypes from "prop-types";
 import DoubleText from "../../component/Text/DoubleText/DoubleText";
 import NavigationMenu from "../../component/NavigationMenu/NavigationMenu";
@@ -10,12 +11,22 @@ const SideBar = ({
   propUserName = "??", // 기본 유저 이름
 }) => {
   const navigate = useNavigate();
-  const userInfo = JSON.parse(localStorage.getItem("user"));
-  console.log(userInfo);
   // 로그아웃 함수
   const removeUserInfo = () => {
-    localStorage.removeItem("user"); // 로컬 스토리지에서 "data" 삭제
-    navigate("/member/login");
+    axios
+      .post("https://scit45dango.site/logout")
+      .then((response) => {
+        console.log("로그아웃 성공:", response.data);
+
+        // 로컬 스토리지에서 사용자 정보 삭제
+        localStorage.removeItem("user");
+
+        // 로그인 페이지 또는 원하는 페이지로 리디렉션
+        navigate("/member/login");
+      })
+      .catch((error) => {
+        console.error("로그아웃 실패:", error);
+      });
   };
 
   return (

@@ -114,7 +114,7 @@ const LoginPageForm = () => {
         <LinkText
           propText={"회원가입"}
           propFontSize="var(--font-body1)"
-          propUrl="/signup" // 내부 페이지 경로
+          propUrl="/member/signup" // 내부 페이지 경로
           propIsExternal={false}
         />
       </div>
