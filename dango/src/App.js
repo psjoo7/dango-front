@@ -10,6 +10,7 @@ import LoginPage from "./pages/Login/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import MyProfilePage from "./pages/MyProfilePage/MyProfilePage";
 import ProtectedRoute from "./route/ProtectedRoute";
+import SignUpPage from "./pages/Login/SignUpPage/SignUpPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -22,7 +23,6 @@ function App() {
           path="/member/login"
           element={isAuthenticated ? <Navigate to="/home" /> : <LoginPage />}
         />
-
         {/* 보호된 경로: 로그인한 사용자만 접근 가능 */}
         <Route
           path="/home"
@@ -39,7 +39,8 @@ function App() {
               <MyProfilePage />
             </ProtectedRoute>
           }
-        />
+        />{" "}
+        <Route path="/member/signup" element={<SignUpPage />} />
         {/* 모든 경로는 로그인하지 않은 상태면 로그인 페이지로 리다이렉트 */}
         <Route path="*" element={<Navigate to="/member/login" />} />
       </Routes>
