@@ -1,27 +1,59 @@
 .signUpFinishPageForm {
-    display: flex;
-    width: fit-content;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 510px;
-    gap: 132px;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 510px;
+  gap: 132px;
 }
 
 .texts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 55px;
 }
 
+.topText {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+}
 
+.textInput {
+  border: none; /* 기존의 모든 테두리를 제거합니다 */
+  border-bottom: 5px solid black; /* 아래쪽 테두리를 추가합니다 */
+  outline: none;
+  font-family: var(--font-noto-sans);
+  font-size: 80px;
+  font-weight: 700;
+  color: black;
+  width: 115px;
+  position: absolute;
+  left: 750px;
+}
 
 .button {
-    transition: all 0.3s ease; /* 부드러운 트랜지션 효과 */
+  transition: all 0.3s ease; /* 부드러운 트랜지션 효과 */
 }
 
 .button:hover {
-    transform: translateY(-8px); /* 마우스를 올리면 버튼이 5px 위로 이동 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 살짝 그림자 효과 추가 */
+  transform: translateY(-8px); /* 마우스를 올리면 버튼이 5px 위로 이동 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 살짝 그림자 효과 추가 */
+}
+
+.bottomText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.bottomText1 {
+  display: flex;
+}
+.bottomText2 {
+  display: flex;
 }

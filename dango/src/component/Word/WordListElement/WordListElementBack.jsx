@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './WordListElementBack.module.css';
-import { RegularText } from '../../Text';
+import DynamicText from '../../Text/DynamicText/DynamicText';
 
 const WordListElementBack = ({
                                  propBackNumber = '01',
@@ -10,11 +10,11 @@ const WordListElementBack = ({
     return (
         <div className={`${styles.wordListElementBack} ${className}`}>
             <div className={styles.number}>
-                <RegularText propText={propBackNumber} propFontSize="42px" />
+                <DynamicText propText={propBackNumber} propMaxFontSize={42} propMinFontSize={25} />
             </div>
 
             <div className={styles.wordElement}>
-                <RegularText propText={propBackHanja} propFontSize="42px" />
+                <DynamicText propText={propBackHanja} propMaxFontSize={42} propMinFontSize={25} />
             </div>
 
             <div className={styles.wordElement}></div>

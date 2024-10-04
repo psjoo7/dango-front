@@ -41,7 +41,8 @@ const SignUpPageForm = ({ className = "" }) => {
     try {
       // 서버로 회원가입 요청 전송
       const response = await axios.post(
-        "https://scit45dango.site/api/member/join",
+        // "https://scit45dango.site/api/member/join", // 서버 환경의 경우
+        "http://localhost:8888/api/member/join", // 로컬 환경의 경우
         {
           userEmail: formData.email,
           userPassword: formData.userPassword,
@@ -53,7 +54,18 @@ const SignUpPageForm = ({ className = "" }) => {
 
       if (response.status === 201) {
         alert("회원가입에 성공했습니다.");
-        navigate("/member/login");
+        const response = await axios.post(
+          // "https://scit45dango.site/api/member/login", // 서버 환경의 경우
+          "http://localhost:8888/api/member/login", // 로컬 환경의 경우
+          {
+            userEmail: formData.email,
+            userPassword: formData.userPassword,
+          }
+        );
+
+        console.log("로그인 성공:", response.data);
+        localStorage.setItem("user", JSON.stringify(response.data));
+        navigate("/member/sign_up_finish");
       }
     } catch (error) {
       console.error("회원가입 오류:", error);

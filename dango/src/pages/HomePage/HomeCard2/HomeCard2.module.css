@@ -21,6 +21,18 @@
 .List{
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 25px;
     align-content: center;
+}
+
+.chartAndList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.talk{
+    position:absolute;
+    top: 165px;
 }

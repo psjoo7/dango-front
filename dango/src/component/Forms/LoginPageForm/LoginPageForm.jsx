@@ -16,6 +16,9 @@ const LoginPageForm = () => {
   const goToHomePage = () => {
     navigate("/home");
   };
+  const goToLevelTestPage = () => {
+    navigate("/member/sign_up_finish");
+  };
   // form submit 핸들러
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,13 +30,21 @@ const LoginPageForm = () => {
 
     try {
       const response = await axios.post(
-        "https://scit45dango.site/api/member/login",
-        formData
+        // "https://scit45dango.site/api/member/login", // 서버 환경의 경우
+        "http://localhost:8888/api/member/login", // 로컬 환경의 경우
+        formData,
+        { withCredentials: true }
       );
 
       console.log("로그인 성공:", response.data);
       localStorage.setItem("user", JSON.stringify(response.data));
-      goToHomePage();
+      const userInfo = JSON.parse(localStorage.getItem("user"));
+      if (userInfo.originalLevel == null) {
+        // goToLevelTestPage();
+        goToHomePage();
+      } else {
+        goToHomePage();
+      }
     } catch (error) {
       console.error(
         "로그인 실패:",

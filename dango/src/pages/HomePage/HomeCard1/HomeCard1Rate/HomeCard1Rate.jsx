@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import RegularText from "../../../../component/Text/RegularText/RegularText";
 import DoubleText from "../../../../component/Text/DoubleText/DoubleText";
 
-const HomeCard1Rate = () => {
+const HomeCard1Rate = ({ propContent = 0 }) => {
   return (
     <div className={styles.homeCard1Rate}>
       <DoubleText
-        propText1={"100"}
+        propText1={propContent}
         propText2={"%"}
         propText1FontSize={"18px"}
         propText2FontSize={"18px"}
@@ -26,6 +26,7 @@ const HomeCard1Rate = () => {
 
 HomeCard1Rate.propTypes = {
   className: PropTypes.string,
+  propContent: PropTypes.number,
 };
 
 export default HomeCard1Rate;

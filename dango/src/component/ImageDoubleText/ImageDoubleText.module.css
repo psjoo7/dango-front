@@ -1,23 +1,24 @@
 .imageDoubleText {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* 이미지와 텍스트의 간격 조정 */
-    padding: 10px;
-    box-sizing: border-box;
-    font-family: var(--font-noto-sans);
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 이미지와 텍스트의 간격 조정 */
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: var(--font-noto-sans);
 }
 
 .image {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
-.text1, .text2 {
-    margin: 0;
-    white-space: nowrap;
+.text1,
+.text2 {
+  margin: 0;
+  white-space: nowrap;
 }
 
 .text1.text2 {
-    margin: 0;
-    white-space: nowrap;
+  margin: 0;
+  white-space: nowrap;
 }

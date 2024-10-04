@@ -11,6 +11,11 @@ import HomePage from "./pages/HomePage/HomePage";
 import MyProfilePage from "./pages/MyProfilePage/MyProfilePage";
 import ProtectedRoute from "./route/ProtectedRoute";
 import SignUpPage from "./pages/Login/SignUpPage/SignUpPage";
+import SignUpFinishPage from "./pages/Login/SignUpFinishPage/SignUpFinishPage";
+import LevelTestPage from "./pages/LevelTestPage/LevelTestPage";
+import WordPage from "./pages/Study/WordPage/WordPage";
+import WordTestPage from "./pages/Study/WordTestPage/WordTestPage";
+import ReviewPage from "./pages/ReviewPage/ReviewPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -39,7 +44,33 @@ function App() {
               <MyProfilePage />
             </ProtectedRoute>
           }
-        />{" "}
+        />
+        <Route
+          path="/study/word"
+          element={
+            <ProtectedRoute>
+              <WordPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/study/word_test"
+          element={
+            <ProtectedRoute>
+              <WordTestPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/review"
+          element={
+            <ProtectedRoute>
+              <ReviewPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/quiz/level_test" element={<LevelTestPage />} />
+        <Route path="/member/sign_up_finish" element={<SignUpFinishPage />} />
         <Route path="/member/signup" element={<SignUpPage />} />
         {/* 모든 경로는 로그인하지 않은 상태면 로그인 페이지로 리다이렉트 */}
         <Route path="*" element={<Navigate to="/member/login" />} />

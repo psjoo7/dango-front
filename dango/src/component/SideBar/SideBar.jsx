@@ -16,13 +16,11 @@ const SideBar = ({
   // 로그아웃 함수
   const removeUserInfo = () => {
     axios
-      .post("https://scit45dango.site/logout")
+      // .post("https://scit45dango.site/logout") // 서버 환경의 경우
+      .post("http://localhost:8888/logout") // 로컬 환경의 경우
       .then((response) => {
-        console.log("로그아웃 성공:", response.data);
-
         // 로컬 스토리지에서 사용자 정보 삭제
         localStorage.removeItem("user");
-
         // 로그인 페이지 또는 원하는 페이지로 리디렉션
         navigate("/member/login");
       })
@@ -67,7 +65,7 @@ const SideBar = ({
         <NavigationMenu
           propImgFileName={"Check.svg"}
           propAltText={"check side bar"}
-          propNavigatePath={"/word"}
+          propNavigatePath={"/review"}
           propClassName={styles.menuItem} // 추가 스타일링 가능
         />
 

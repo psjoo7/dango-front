@@ -11,13 +11,13 @@ const WordListElement = ({
                              propFrontMeaning,
                              propBackNumber,
                              propBackHanja,
-                             isFlipped, // 카드가 뒤집혔는지 여부를 상위에서 받음
-                             onFlip, // 개별 카드 클릭 시 호출할 함수
+                             propIsFlipped, // 카드가 뒤집혔는지 여부를 상위에서 받음
+                             propOnFlip, // 개별 카드 클릭 시 호출할 함수
                              className = "",
                          }) => {
     return (
-        <div className={`${styles.wordListElement} ${className}`} onClick={onFlip}>
-            <div className={`${styles.card} ${isFlipped ? styles.flipped : ""}`}>
+        <div className={`${styles.wordListElement} ${className}`} onClick={propOnFlip}>
+            <div className={`${styles.card} ${propIsFlipped ? styles.flipped : ""}`}>
                 <div className={styles.front}>
                     <WordListElementFront
                         propFrontNumber={propFrontNumber}
@@ -44,8 +44,8 @@ WordListElement.propTypes = {
     propFrontMeaning: PropTypes.string,
     propBackNumber: PropTypes.string,
     propBackHanja: PropTypes.string,
-    isFlipped: PropTypes.bool, // 카드가 뒤집혔는지 여부
-    onFlip: PropTypes.func, // 개별 카드 클릭 시 호출할 함수
+    propIsFlipped: PropTypes.bool, // 카드가 뒤집혔는지 여부
+    propOnFlip: PropTypes.func, // 개별 카드 클릭 시 호출할 함수
     className: PropTypes.string,
 };
 

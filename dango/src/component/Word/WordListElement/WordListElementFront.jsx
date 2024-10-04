@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './WordListElementFront.module.css';
-import { RegularText } from '../../Text';
+import DynamicText from '../../Text/DynamicText/DynamicText';
 
 const WordListElementFront = ({
                                   propFrontNumber = '01',
@@ -12,19 +12,19 @@ const WordListElementFront = ({
     return (
         <div className={`${styles.wordListElementFront} ${className}`}>
             <div className={styles.number}>
-                <RegularText propText={propFrontNumber} propFontSize="42px" />
+                <DynamicText propText={propFrontNumber} propMaxFontSize={42} propMinFontSize={25} />
             </div>
 
             <div className={styles.wordElement}>
-                <RegularText propText={propFrontHanja} propFontSize="42px" />
+                <DynamicText propText={propFrontHanja} propMaxFontSize={42} propMinFontSize={25} />
             </div>
 
             <div className={styles.wordElement}>
-                <RegularText propText={propFrontReading} propFontSize="42px" />
+                <DynamicText propText={propFrontReading} propMaxFontSize={42} propMinFontSize={25} />
             </div>
 
             <div className={styles.wordElement}>
-                <RegularText propText={propFrontMeaning} propFontSize="42px" />
+                <DynamicText propText={propFrontMeaning} propMaxFontSize={42} propMinFontSize={25} />
             </div>
         </div>
     );

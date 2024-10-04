@@ -2,10 +2,19 @@ import { useState } from "react";
 import styles from "./InCard1.module.css";
 import Button from "../../../../component/Buttons/RegularButton/RegularButton";
 import HomeCard1Rate from "../HomeCard1Rate/HomeCard1Rate";
+import { useNavigate } from "react-router-dom";
 
 const InCard1 = () => {
   // hover 상태를 관리하기 위한 상태
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const moveToWordPage = () => {
+    navigate("/study/word");
+  };
+
+  const index = parseFloat(localStorage.getItem("currentIndex"), 10);
+  const rate = (index / 20) * 100;
 
   return (
     <div
@@ -36,11 +45,12 @@ const InCard1 = () => {
         propBorderRadius={"20px"}
         propHoverColor={"var(--color-black)"}
         propHoverTextColor={"var(--color-white)"}
+        propOnClick={moveToWordPage}
         propHover={true}
       />
 
       <div className={styles.rate}>
-        <HomeCard1Rate />
+        <HomeCard1Rate propContent={rate} />
       </div>
     </div>
   );
