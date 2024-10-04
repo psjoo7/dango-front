@@ -14,7 +14,8 @@ const WordPage = () => {
       const type = "단어";
 
       const response = await axios.post(
-        "http://localhost:8888/api/study/word",
+        // "http://localhost:8888/api/study/word",
+        "https://scit45dango.site/api/study/word",
         { level, userId, type }
       );
 
@@ -52,7 +53,8 @@ const WordPage = () => {
       const type = "단어";
 
       const response = await axios.post(
-        "http://localhost:8888/api/study/word",
+        // "http://localhost:8888/api/study/word",
+        "https://scit45dango.site/api/study/word",
         { level, userId, type }
       );
 
