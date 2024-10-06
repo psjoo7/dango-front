@@ -46,7 +46,7 @@ const TestEntryPage = () => {
       propFrontImageCode="2_w" // 모든 카드에서 동일하게 사용할 프론트 이미지 코드
       propFirstGaugePercentage={daily} // daily로 계산된 진행률 사용
       propFirstBackImageCode="1_w"
-      propFirstLink="/"
+      propFirstLink="/quiz/test"
       propSecondGaugePercentage={weekly} // 다른 값들은 임의로 설정된 것 유지
       propSecondBackImageCode="3_w"
       propSecondLink="/review"
