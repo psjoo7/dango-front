@@ -14,9 +14,9 @@ const InCard2 = () => {
   };
 
   const rate =
-    (parseFloat(localStorage.getItem("currentGrammerIndex"), 10) || 0 / 3) *
+    ((parseFloat(localStorage.getItem("currentGrammerIndex"), 10) || 0) / 3) *
     100;
-  const roundedRate = Math.min(Math.round(rate), 100);
+  const roundedRate = Math.min(Math.round(rate));
 
   return (
     <div

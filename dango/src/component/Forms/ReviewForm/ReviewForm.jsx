@@ -30,7 +30,7 @@ const ReviewForm = ({ propDay, propImageCode, reviewDates }) => {
 };
 
 ReviewForm.propTypes = {
-  propDay: PropTypes.number.isRequired, // propDay는 필수
+  propDay: PropTypes.any.isRequired, // propDay는 필수
   propImageCode: PropTypes.string.isRequired, // propImageCode도 필수
   reviewDates: PropTypes.array.isRequired, // reviewDates 배열도 필수
 };

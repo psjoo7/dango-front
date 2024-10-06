@@ -2,10 +2,16 @@ import { useState } from "react";
 import styles from "./InCard3.module.css";
 import Button from "../../../../component/Buttons/RegularButton/RegularButton";
 import HomeCard1Rate from "../HomeCard1Rate/HomeCard1Rate";
+import { useNavigate } from "react-router-dom";
 
 const InCard3 = () => {
   // hover 상태를 관리하기 위한 상태
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const moveToListeningPage = () => {
+    navigate("/quiz/listening");
+  };
 
   return (
     <div
@@ -36,6 +42,7 @@ const InCard3 = () => {
         propBorderRadius={"20px"}
         propHoverColor={"var(--color-black)"}
         propHoverTextColor={"var(--color-white)"}
+        propOnClick={moveToListeningPage}
         propHover={true}
       />
 

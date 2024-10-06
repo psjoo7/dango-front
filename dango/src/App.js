@@ -19,6 +19,7 @@ import ReviewPage from "./pages/ReviewPage/ReviewPage";
 import GrammarPage from "./pages/GrammarPage/GrammarPage";
 import GrammarTestPage from "./pages/GrammarTestPage/GrammarTestPage";
 import LevelTestFinishPage from "./pages/Login/LevelTestFinishPage/LevelTestFinishPage";
+import ListeningPage from "./pages/ListeningPage/ListeningPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -101,6 +102,14 @@ function App() {
           element={
             <ProtectedRoute>
               <LevelTestFinishPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/listening"
+          element={
+            <ProtectedRoute>
+              <ListeningPage />
             </ProtectedRoute>
           }
         />
