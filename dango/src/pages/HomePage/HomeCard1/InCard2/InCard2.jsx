@@ -9,12 +9,14 @@ const InCard2 = () => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
-  const moveToWordPage = () => {
-    navigate("/study/word");
+  const moveToGrammerPage = () => {
+    navigate("/study/grammer");
   };
 
-  const index = parseFloat(localStorage.getItem("currentIndex"), 10);
-  const rate = (index / 20) * 100;
+  const rate =
+    (parseFloat(localStorage.getItem("currentGrammerIndex"), 10) || 0 / 3) *
+    100;
+  const roundedRate = Math.min(Math.round(rate), 100);
 
   return (
     <div
@@ -45,11 +47,12 @@ const InCard2 = () => {
         propBorderRadius={"20px"}
         propHoverColor={"var(--color-black)"}
         propHoverTextColor={"var(--color-white)"}
+        propOnClick={moveToGrammerPage}
         propHover={true}
       />
 
       <div className={styles.rate}>
-        <HomeCard1Rate propContent={rate} />
+        <HomeCard1Rate propContent={roundedRate} />
       </div>
     </div>
   );

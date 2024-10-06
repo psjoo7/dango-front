@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import ConnectionGameTop from "./ConnectionGameTop/ConnectionGameTop";
 import SideBar from "../../../../component/SideBar/SideBar";
 import styles from "./ConnectionGamePageForm.module.css";
@@ -15,8 +16,16 @@ const ConnectionGamePageForm = ({
                                     propCharacterCodeMy = "9_w",         // CharacterMy 캐릭터 이미지 코드 (기본값 9_w)
                                     propShowHeartMy = true,              // CharacterMy 하트 이미지 표시 여부
                                     propShowRainMy = false,              // CharacterMy 레인 이미지 표시 여부
-                                    propMidText = "중간 단계"            // 중간 텍스트 (기본값 중간 단계)
+                                    propMidText = "중간 단계",           // 중간 텍스트 (기본값 중간 단계)
+                                    propCharacterCodePartner = "5_w",    // CharacterPartner 캐릭터 이미지 코드 (기본값 2_w)
                                 }) => {
+    const [inputValue, setInputValue] = useState("");
+
+    const handleAnswerSubmit = (value) => {
+        console.log("상위 컴포넌트에서 받은 값 (나):", value);
+        setInputValue(value); // 인풋 값을 상위 상태로 설정
+    };
+
     return (
         <div className={styles.backGround}>
             <SideBar />
@@ -28,6 +37,7 @@ const ConnectionGamePageForm = ({
                     propProfileImageCode={propProfileImageCode} // 프로필 이미지 코드
                     propShowGameLose={propShowGameLose}       // GameLose 이미지 표시 여부
                     propShowProfile={propShowProfile}         // 프로필 이미지 표시 여부
+                    propAnswer={handleAnswerSubmit}           // 상위 컴포넌트로 값을 전달하는 함수
                 />
 
                 <div className={styles.bottom}>
@@ -36,6 +46,7 @@ const ConnectionGamePageForm = ({
                         propPartnerUserName={"Ai"}            // 파트너 유저 이름
                         propShowHeart={false}
                         propShowRain={false}
+                        propCharacterCode={propCharacterCodePartner}  // prop 이름 변경
                     />
 
                     {/* ConnectionGameMid에 동적 prop 전달 */}
@@ -52,6 +63,10 @@ const ConnectionGamePageForm = ({
                         propShowRain={propShowRainMy}         // 레인 이미지 표시 여부
                     />
                 </div>
+
+                {/* 상위에서 받은 인풋 값 표시 */}
+                <div>
+                </div>
             </div>
         </div>
     );
@@ -66,7 +81,8 @@ ConnectionGamePageForm.propTypes = {
     propCharacterCodeMy: PropTypes.string, // CharacterMy 캐릭터 이미지 코드 Prop
     propShowHeartMy: PropTypes.bool,       // CharacterMy 하트 이미지 표시 여부 Prop
     propShowRainMy: PropTypes.bool,        // CharacterMy 레인 이미지 표시 여부 Prop
-    propMidText: PropTypes.string          // 중간 텍스트 Prop
+    propMidText: PropTypes.string,         // 중간 텍스트 Prop
+    propCharacterCodePartner: PropTypes.string, // CharacterPartner 캐릭터 이미지 코드 Prop
 };
 
 export default ConnectionGamePageForm;

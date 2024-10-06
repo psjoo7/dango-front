@@ -1,23 +1,40 @@
-import styles from "./ConnectionGamePage.module.css"
 import ConnectionGamePageForm from "../../../component/Forms/GameForm/ConnectionGamePageForm/ConnectionGamePageForm";
+import {useState} from "react";
 
 
 
 
 
 const ConnectionGamePage = () => {
+
+    const [myAnswer, setMyAnswer] = useState(""); // 나의 입력 값을 저장하는 상태
+
+    // 나의 입력 값을 처리하는 함수
+    const handleMyAnswerSubmit = (answer) => {
+        console.log("상위 컴포넌트에서 받은 나의 입력 값:", answer);
+        setMyAnswer(answer); // 나의 입력 값을 상태로 저장
+    };
+
     return (
-        <ConnectionGamePageForm
-            propCount="100"                    // 첫 번째 텍스트 (카운트)
-            propFirstBoxText="사자"         // 첫 번째 박스 텍스트
-            propProfileImageCode="2_w"        // 프로필 이미지 코드
-            propShowGameLose={false}           // GameLose 이미지 표시 여부
-            propShowProfile={true}           // 프로필 이미지 표시 여부
-            propCharacterCodeMy="8_w"         // CharacterMy 캐릭터 이미지 코드
-            propShowHeartMy={true}           // CharacterMy 하트 이미지 표시 여부
-            propShowRainMy={false}             // CharacterMy 레인 이미지 표시 여부
-            propMidText="안녕"         // 중간 텍스트
-        />
+        <div>
+            {/* ConnectionGamePageForm 컴포넌트에 필요한 props 전달 */}
+            <ConnectionGamePageForm
+                propCount="2"
+                propFirstBoxText="안녕"
+                propProfileImageCode="2_w"
+                propShowGameLose={false}
+                propShowProfile={true}
+                propCharacterCodeMy="5_m"
+                propShowHeartMy={false}
+                propShowRainMy={true}
+                propMidText="중간 텍스트"
+                propCharacterCodePartner={"5_w"}
+
+                /* 나의 입력 값 처리 함수 전달 */
+                handleAnswerSubmit={handleMyAnswerSubmit} // 나의 입력 값을 처리하는 함수 전달
+            />
+
+        </div>
     );
 };
 

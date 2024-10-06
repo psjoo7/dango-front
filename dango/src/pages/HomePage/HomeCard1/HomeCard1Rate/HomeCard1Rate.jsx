@@ -9,6 +9,7 @@ const HomeCard1Rate = ({ propContent = 0 }) => {
       <DoubleText
         propText1={propContent}
         propText2={"%"}
+        propTextSpacing="0"
         propText1FontSize={"18px"}
         propText2FontSize={"18px"}
         propText1FontWeight={"700"}

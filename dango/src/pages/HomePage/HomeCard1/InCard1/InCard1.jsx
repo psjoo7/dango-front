@@ -13,7 +13,7 @@ const InCard1 = () => {
     navigate("/study/word");
   };
 
-  const index = parseFloat(localStorage.getItem("currentIndex"), 10);
+  const index = parseFloat(localStorage.getItem("currentIndex"), 10) || 0;
   const rate = (index / 20) * 100;
 
   return (

@@ -15,9 +15,13 @@ const DynamicText = ({
   const textRef = useRef(null);
 
   useEffect(() => {
-    const adjustFontSize = () => {
-      const textLength = propText.length;
+    // propText가 없으면 아무 것도 하지 않음
+    if (!propText) {
+      return;
+    }
 
+    const adjustFontSize = () => {
+      const textLength = propText.length || 0;
       // 텍스트가 propMaxLength 이상일 때만 폰트 크기 조정
       if (textLength > propMaxLength) {
         const newSize = Math.max(
@@ -44,6 +48,11 @@ const DynamicText = ({
     color: propColor,
     lineHeight: propLineHeight,
   };
+
+  // 조건부 렌더링: propText가 없을 경우 null 반환
+  if (!propText) {
+    return null; // 데이터가 없으면 아무것도 렌더링하지 않음
+  }
 
   return (
     <div ref={textRef} style={textStyle} className={propClassName}>

@@ -1,0 +1,134 @@
+/* 캘린더 전체 컨테이너 */
+.calendarContainer {
+    margin: 0;
+    text-align: left;
+    font-family: var(--font-noto-sans);
+}
+
+/* 캘린더 헤더 (월 이름과 년도) */
+.calendarHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 28px;
+}
+
+/* October 스타일 */
+.calendarMonth {
+    font-size: 36px;
+    color: var(--color-main);
+    font-weight: 400;
+    margin: 0;
+}
+
+/* 2024 스타일 */
+.calendarYear {
+    font-size: 21px;
+    color: var(--color-black);
+    font-weight: 300;
+    margin-left: 8px;
+    margin-bottom: 3px;
+}
+
+/* 캘린더 그리드 */
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 31px);
+    row-gap: 15px;
+    column-gap: 31px;
+    justify-content: flex-start;
+}
+
+/* 요일 헤더 스타일 */
+.calendarDay {
+    font-weight: 500;
+    width: 31px;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 빈 칸 */
+.calendarEmpty {
+    width: 31px;
+    height: 19px;
+}
+
+/* 날짜 타일 스타일 */
+.calendarDate {
+    position: relative;
+    width: 31px;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 400;
+}
+
+/* 지난 날짜 텍스트 색상 */
+.pastDate {
+    color: var(--color-gray2);
+}
+
+/* 달성한 날짜의 원 스타일 */
+.attendedCircle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    box-shadow: 1.5px 2px 2px rgba(0, 0, 0, 0.5); /* 그림자 추가 */
+}
+
+/* 오늘 원 스타일 */
+.todayCircle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    background-color: var(--color-main); /* 오늘 날짜의 원 색상 */
+    box-shadow: 1.5px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 선택한 날짜 원 스타일 */
+.selectedCircle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    background-color: black; /* 선택한 날짜의 원 색상 */
+}
+
+/* 오늘 날짜 텍스트 스타일 (검은색) */
+.todayText {
+    color: black;
+}
+
+/* 선택된 날짜 텍스트 스타일 (흰색) */
+.selectedText {
+    color: white;
+}
+
+/* 달성한 날짜 텍스트 스타일 (검은색) */
+.activeText {
+    color: black;
+}
+
+/* 지난날 기본 텍스트 스타일 */
+.pastDate{
+    color: var(--color-gray2);
+}

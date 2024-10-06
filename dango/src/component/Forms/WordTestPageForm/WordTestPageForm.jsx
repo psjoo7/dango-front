@@ -38,8 +38,8 @@ const WordTestPageForm = () => {
       const userId = user.userId;
       const studyType = "단어";
       // 예시 백엔드 요청
-      // await axios.post("http://localhost:8888/api/study/answer", {
-      await axios.post("https://scit45dango.site/api/study/answer", {
+      await axios.post("http://localhost:8888/api/study/answer", {
+        // await axios.post("https://scit45dango.site/api/study/answer", {
         studyContentId,
         answer,
         userId,
@@ -88,6 +88,10 @@ const WordTestPageForm = () => {
       navigate("/study/word");
     }
   };
+  // 전체 단어 리스트 보러가기
+  const moveToWordPage = () => {
+    navigate("/study/word");
+  };
 
   return (
     <div className={styles.backGround}>
@@ -123,6 +127,7 @@ const WordTestPageForm = () => {
               propWidth={"120px"}
               propText={"단어 보러 가기"}
               propBorder={"4px solid black"}
+              propOnClick={moveToWordPage}
             />
           </div>
 

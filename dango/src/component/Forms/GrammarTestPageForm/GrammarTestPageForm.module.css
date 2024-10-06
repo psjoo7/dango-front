@@ -1,0 +1,48 @@
+.wrapper {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  margin-top: 80px;
+}
+
+.cards {
+  width: 1000px;
+  display: flex;
+  gap: 36px;
+}
+
+.bottom {
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftButton {
+  width: 33.33%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.midText {
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+}
+
+.rightButtons {
+  width: 33.33%;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
+
+.backGround {
+  width: 1920px;
+  height: 1080px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

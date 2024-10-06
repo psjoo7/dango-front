@@ -1,0 +1,123 @@
+.modalOverlay {
+    position: fixed;
+    width: 1920px;
+    height: 1080px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    width: 1150px;
+    height: 647px;
+    border-radius: 25px;
+    background: transparent;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.50);
+    box-sizing: border-box;
+    pointer-events: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background-color: transparent;
+    border: none;
+    font-size: 36px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+    padding: 0;
+    line-height: 1;
+    height: fit-content;
+    width: fit-content;
+    display: block;
+    transition: transform 0.2s ease; /* 부드럽게 위로 올리기 */
+}
+
+.closeButton:hover {
+    transform: translateY(-3px); /* 버튼을 살짝 위로 3px 이동 */
+}
+
+.OmikujiBack {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 25px;
+}
+
+.OmikujiBox {
+    position: absolute;
+    top: 192px;
+    left: 710px;
+    transition: transform 0.3s ease;
+}
+
+/* 15도 각도로 흔들리는 애니메이션 정의 */
+@keyframes rotateShake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-12deg); }
+    50% { transform: rotate(12deg); }
+    75% { transform: rotate(-12deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* OmikujiBox에 마우스를 올렸을 때 회전하면서 흔들리는 애니메이션 적용 */
+.OmikujiBox:hover {
+    animation: rotateShake 0.5s ease; /* 0.5초 동안 15도 회전 애니메이션 */
+}
+
+.OmikujiButton {
+    position: absolute;
+    top: 444px;
+    left: 650px;
+    transition: transform 0.3s ease;
+}
+
+/* 버튼을 흔들리는 애니메이션 정의 */
+@keyframes buttonShake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* 버튼을 올렸을 때 회전하면서 흔들리는 애니메이션 적용 */
+.OmikujiButton:hover {
+    animation: buttonShake 0.5s ease; /* 0.5초 동안 흔들리는 애니메이션 */
+}
+
+.count{
+    position: absolute;
+    top: 135px;
+    left: 571px;
+}
+
+.back{
+    position: absolute;
+    top: -23px;
+    left: 513px;
+    scale: 0.96;
+}

@@ -16,6 +16,9 @@ import LevelTestPage from "./pages/LevelTestPage/LevelTestPage";
 import WordPage from "./pages/Study/WordPage/WordPage";
 import WordTestPage from "./pages/Study/WordTestPage/WordTestPage";
 import ReviewPage from "./pages/ReviewPage/ReviewPage";
+import GrammarPage from "./pages/GrammarPage/GrammarPage";
+import GrammarTestPage from "./pages/GrammarTestPage/GrammarTestPage";
+import LevelTestFinishPage from "./pages/Login/LevelTestFinishPage/LevelTestFinishPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -62,10 +65,42 @@ function App() {
           }
         />
         <Route
+          path="/study/grammer"
+          element={
+            <ProtectedRoute>
+              <GrammarPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/study/grammar_test"
+          element={
+            <ProtectedRoute>
+              <GrammarTestPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/review"
           element={
             <ProtectedRoute>
               <ReviewPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/level_test"
+          element={
+            <ProtectedRoute>
+              <LevelTestPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/level_test_finish"
+          element={
+            <ProtectedRoute>
+              <LevelTestFinishPage />
             </ProtectedRoute>
           }
         />

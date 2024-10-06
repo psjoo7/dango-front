@@ -5,21 +5,22 @@ import RegularText from "../../../component/Text/RegularText/RegularText";
 import HomeCard2List from "./HomeCard2List/HomeCard2List";
 import DoughnutChartDouble from "../../../component/DoughnutChartDouble/DoughnutChartDouble";
 
-const HomeCard2 = ({ propGrammer = 0, propListen = 0 }) => {
+const HomeCard2 = ({ propListen = 0 }) => {
   // propWord를 상태로 관리
   const [propWord, setPropWord] = useState(
     parseFloat(localStorage.getItem("currentIndex"), 10) || 0
+  );
+  const [propGrammer, setPropGrammer] = useState(
+    parseFloat(localStorage.getItem("currentGrammerIndex"), 10) || 0
   );
 
   // setPropWord((propWord / 20) * 100);
   useEffect(() => {
     const wordProgress = (propWord / 20) * 100;
-    console.log("wordProgress : ", wordProgress);
-    if (parseInt(wordProgress) >= 100) {
-      setPropWord(100);
-    } else {
-      setPropWord(wordProgress);
-    }
+    const grammerProgress = (propGrammer / 3) * 100;
+    // 반올림 적용하여 소수점 제거
+    setPropWord(Math.min(Math.round(wordProgress), 100)); // 100이 최대치로 제한
+    setPropGrammer(Math.min(Math.round(grammerProgress), 100)); // 100이 최대치로 제한
   }, []);
 
   const nonProgress = 300 - propWord - propGrammer - propListen;

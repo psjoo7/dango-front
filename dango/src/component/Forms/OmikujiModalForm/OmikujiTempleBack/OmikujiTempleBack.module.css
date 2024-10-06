@@ -1,0 +1,73 @@
+/* OmikujiTempleBack.module.css */
+
+.OmikujiPageElement {
+    position: relative;
+    width: 513px;
+    height: 255px;
+    perspective: 1000px; /* 3D 회전 효과를 위한 원근감 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.OmikujiCard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 2.5s ease, opacity 0.8s ease; /* 회전 속도와 투명도 설정 */
+    opacity: 0; /* 처음에는 보이지 않게 설정 */
+}
+
+.OmikujiCard.flipped {
+    transform: rotateY(180deg); /* 카드가 뒤집히는 회전 효과 */
+    opacity: 1; /* 카드가 보이도록 설정 */
+}
+
+.OmikujiTempleFront {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* 뒷면이 보이지 않도록 설정 */
+}
+
+.OmikujiTempleFront {
+    z-index: 2; /* 카드 앞면이 기본적으로 위에 표시됨 */
+}
+
+.OmikujiTempleBack {
+    z-index: 1; /* 뒷면은 아래에 표시됨 */
+}
+
+.back {
+    position: relative;
+    width: 513px;
+    height: 255px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: rotateY(180deg); /* 텍스트 좌우 반전 제거 */
+}
+
+.Title {
+    position: absolute;
+    top: 34.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+}
+
+.Content {
+    width: 460px;
+    height: fit-content;
+    position: absolute;
+    top: 74%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+}
+
+

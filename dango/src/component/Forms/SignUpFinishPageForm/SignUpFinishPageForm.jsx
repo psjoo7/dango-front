@@ -23,7 +23,7 @@ const SignUpFinishPageForm = ({ propUsername }) => {
     // 입력 값이 유효한지 확인
     if (validValues.includes(trimmedValue)) {
       // 유효한 경우 세션 스토리지에 저장
-      sessionStorage.setItem("jlptLevel", trimmedValue);
+      sessionStorage.setItem("setLevel", trimmedValue);
       // 다음 단계로 이동하는 로직을 추가할 수 있습니다.
       // 예: 페이지 이동 또는 상태 업데이트
       console.log("세션에 저장되었습니다:", trimmedValue);
