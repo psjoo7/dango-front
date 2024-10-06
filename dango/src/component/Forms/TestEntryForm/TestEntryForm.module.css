@@ -1,0 +1,13 @@
+.TestEntryForm{
+    width: 1920px;
+    height: 1080px;
+
+    display: flex;
+    gap: 140px;
+    align-items: center;
+}
+.cards{
+    display: flex;
+    gap: 80px;
+
+}

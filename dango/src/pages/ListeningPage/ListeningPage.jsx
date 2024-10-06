@@ -11,13 +11,14 @@ import LoadingComponent from "../../component/LoadingComponent/LoadingComponent"
 
 const ListeningPage = () => {
   const navigate = useNavigate();
-  const [quizData, setQuizData] = useState(null); // 퀴즈 문제 데이터를 관리하는 상태
-  const [currentIndex, setCurrentIndex] = useState(1); // 현재 문제 인덱스 (1부터 시작)
-  const [selectedValue, setSelectedValue] = useState(null); // 사용자가 선택한 값
+  const [quizData, setQuizData] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [selectedValue, setSelectedValue] = useState(null);
   const [answerAmount, setAnswerAmount] = useState(0);
-  const [selectedChoice, setSelectedChoice] = useState(null); // 선택된 항목 상태
-  const [isLoading, setIsLoading] = useState(true); // 로딩 상태 관리
-  const [retryCount, setRetryCount] = useState(0); // 재시도 횟수 관리
+  const [selectedChoice, setSelectedChoice] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [retryCount, setRetryCount] = useState(0);
+  const [studyContent, setStudyContent] = useState(null);
 
   const userInfo = JSON.parse(localStorage.getItem("user"));
   const level = sessionStorage.getItem("setLevel");
@@ -44,7 +45,6 @@ const ListeningPage = () => {
       cleanedQuestion = cleanedQuestion.replace(/\((\d+)\)\./g, "$1.");
       cleanedQuestion = cleanedQuestion.replace(/'(.*?)'/g, '"$1"');
       cleanedQuestion = cleanedQuestion.replace(/\\n/g, "");
-
       return JSON.parse(cleanedQuestion);
     } catch (error) {
       console.error("문자열 파싱 실패:", error);
@@ -54,37 +54,34 @@ const ListeningPage = () => {
 
   const fetchFirstQuestion = async () => {
     try {
-      console.log("start : ", level, parseInt(userInfo.userId));
       const response = await axios.post(
         "http://localhost:8888/api/quiz/listening/start",
         {
-          level: level, // 청해 레벨 설정
-          userId: parseInt(userInfo.userId), // 사용자 ID
+          level: level,
+          userId: parseInt(userInfo.userId),
         }
       );
+
       const parsedQuestions = response.data.questions
-        .map((questionStr) => {
-          if (typeof questionStr === "string") {
-            return cleanAndParseJSON(questionStr);
-          }
-          return questionStr;
-        })
+        .map((questionStr) =>
+          typeof questionStr === "string"
+            ? cleanAndParseJSON(questionStr)
+            : questionStr
+        )
         .filter((question) => question !== null);
 
       if (parsedQuestions.length > 0) {
-        setQuizData(parsedQuestions); // 파싱된 문제 데이터를 상태로 저장
-        console.log("응답 데이터:", quizData);
+        setQuizData(parsedQuestions);
+        setStudyContent(response.data.studyContent); // studyContent 프론트에서 관리
         setIsLoading(false);
-        playAudio(parsedQuestions[currentIndex - 1].content); // 첫 번째 문제 읽기
+        // playAudio(parsedQuestions[currentIndex - 1].content);
       } else {
         throw new Error("파싱된 문제가 없습니다.");
       }
     } catch (error) {
       if (retryCount < 3) {
-        console.log(`재시도 중... (${retryCount + 1}번째 시도)`);
         setRetryCount(retryCount + 1);
       } else {
-        console.error("첫 번째 문제 불러오기 실패: ", error);
         setIsLoading(false);
         alert("문제를 가져오는 데 실패했습니다. 재시도 횟수를 초과했습니다.");
       }
@@ -99,22 +96,22 @@ const ListeningPage = () => {
       alert("이 브라우저는 음성 합성을 지원하지 않습니다.");
       return;
     }
-
-    window.speechSynthesis.cancel(); // 현재 재생 중인 음성을 초기화
-
+    window.speechSynthesis.cancel();
     const speechMsg = new SpeechSynthesisUtterance();
-    speechMsg.rate = 1; // 속도 설정
-    speechMsg.pitch = 1; // 음높이 설정
-    speechMsg.lang = "ja-JP"; // 일본어로 설정
-    speechMsg.text = text; // 읽을 텍스트 설정
-
-    window.speechSynthesis.speak(speechMsg); // 음성 합성 실행
+    speechMsg.rate = 1;
+    speechMsg.pitch = 1;
+    speechMsg.lang = "ja-JP";
+    speechMsg.text = text;
+    window.speechSynthesis.speak(speechMsg);
   };
 
   const handleSelectedChoice = (choice) => {
     setSelectedChoice(choice);
     setSelectedValue(choice);
     console.log(`사용자가 선택한 값: ${choice}`);
+    console.log("currentIndex", currentIndex);
+    console.log("data  :  ", quizData);
+    console.log("content : ", studyContent);
   };
 
   const handleNextQuestion = async () => {
@@ -128,11 +125,12 @@ const ListeningPage = () => {
           "http://localhost:8888/api/quiz/listening/next",
           {
             generatedQuestions: quizData,
-            level: level,
+            studyContent: studyContent, // 프론트에서 받은 studyContent 전달
             userId: userInfo.userId,
+            userNationality: userInfo.userNationality,
+            currentIndex: currentIndex + 3, // 현재 인덱스를 서버에 전달
           }
         );
-        console.log("response", response);
 
         const parsedQuestions = response.data.questions
           .map((question) => {
@@ -145,14 +143,16 @@ const ListeningPage = () => {
 
         setQuizData(parsedQuestions);
         setCurrentIndex((prevIndex) => prevIndex + 1); // 인덱스 증가
-        setSelectedChoice(null); // 새로운 문제로 이동 시 선택 초기화
-        playAudio(parsedQuestions[currentIndex].content); // 새로운 문제 읽기
+        setSelectedChoice(null);
+        // playAudio(parsedQuestions[currentIndex].content); // 새로운 문제 읽기
       } catch (error) {
+        console.error("다음 문제로 이동 중 에러 발생: ", error);
+        let retryCount = 0;
         if (retryCount < 3) {
           console.log(`재시도 중... (${retryCount + 1}번째 시도)`);
-          setRetryCount(retryCount + 1);
+          handleNextQuestion(retryCount + 1);
         } else {
-          alert("문제를 불러오는 데 실패했습니다. 재시도 횟수를 초과했습니다.");
+          alert("문제를 불러오는 데 실패했습니다. 다시 시도해 주세요.");
         }
       }
     } else if (answerAmount < 14) {
@@ -161,12 +161,14 @@ const ListeningPage = () => {
       try {
         const response = await axios.post(
           "http://localhost:8888/api/quiz/listening/finish",
-          { userId: userInfo.userId, level: level }
+          {
+            userId: userInfo.userId,
+            level: level,
+          }
         );
-        console.log("level updated : ", response);
         moveToLevelFinishPage();
       } catch (error) {
-        console.error("레벨 업데이트 중 에러 발생 : ", error);
+        console.error("레벨 업데이트 중 에러 발생: ", error);
         alert("레벨 업데이트 중 에러 발생했습니다.");
       }
     }
@@ -195,7 +197,7 @@ const ListeningPage = () => {
         }
         propRightComponent3={
           <ImageDoubleText
-            propText1={`${currentIndex}`} // 현재 문제 번호
+            propText1={`${currentIndex}`}
             propText2={` / 20문제`}
             propIsImageVisible={false}
             propWidth={"165px"}
@@ -206,14 +208,14 @@ const ListeningPage = () => {
 
       {/* 문제와 선택지를 표시하는 컴포넌트 */}
       <TestPageForm
-        propChoice1={quizData[currentIndex - 1]?.options[0]} // 백엔드에서 받은 선택지 1
-        propChoice2={quizData[currentIndex - 1]?.options[1]} // 백엔드에서 받은 선택지 2
-        propChoice3={quizData[currentIndex - 1]?.options[2]} // 백엔드에서 받은 선택지 3
-        propChoice4={quizData[currentIndex - 1]?.options[3]} // 백엔드에서 받은 선택지 4
-        propQuizCount={`${currentIndex}`} // 현재 문제 번호
-        propQuiz={quizData[currentIndex - 1]?.content} // 백엔드에서 받은 문제 내용
-        propChoiceSelect={handleSelectedChoice} // 선택된 값을 처리하는 함수
-        selectedChoice={selectedChoice} // 상위에서 관리하는 선택된 상태 전달
+        propChoice1={quizData[currentIndex - 1]?.options[0]}
+        propChoice2={quizData[currentIndex - 1]?.options[1]}
+        propChoice3={quizData[currentIndex - 1]?.options[2]}
+        propChoice4={quizData[currentIndex - 1]?.options[3]}
+        propQuizCount={`${currentIndex}`}
+        propQuiz={quizData[currentIndex - 1]?.content}
+        propChoiceSelect={handleSelectedChoice}
+        selectedChoice={selectedChoice}
       />
 
       {/* Play 버튼 추가 */}

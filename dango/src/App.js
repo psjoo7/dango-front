@@ -20,6 +20,7 @@ import GrammarPage from "./pages/GrammarPage/GrammarPage";
 import GrammarTestPage from "./pages/GrammarTestPage/GrammarTestPage";
 import LevelTestFinishPage from "./pages/Login/LevelTestFinishPage/LevelTestFinishPage";
 import ListeningPage from "./pages/ListeningPage/ListeningPage";
+import TestEntryPage from "./pages/TestEntryPage/TestEntryPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -110,6 +111,14 @@ function App() {
           element={
             <ProtectedRoute>
               <ListeningPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/entry"
+          element={
+            <ProtectedRoute>
+              <TestEntryPage />
             </ProtectedRoute>
           }
         />

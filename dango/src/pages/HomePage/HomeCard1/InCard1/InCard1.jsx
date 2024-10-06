@@ -14,7 +14,7 @@ const InCard1 = () => {
   };
 
   const index = parseFloat(localStorage.getItem("currentIndex"), 10) || 0;
-  const rate = (index / 20) * 100;
+  const rate = Math.round((index / 20) * 100);
 
   return (
     <div

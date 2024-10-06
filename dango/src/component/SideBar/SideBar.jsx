@@ -80,7 +80,7 @@ const SideBar = ({
         <NavigationMenu
           propImgFileName={"Test.svg"}
           propAltText={"test side bar"}
-          propNavigatePath={"/word"}
+          propNavigatePath={"/quiz/entry"}
           propClassName={styles.menuItem} // 추가 스타일링 가능
         />
 

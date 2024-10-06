@@ -1,0 +1,45 @@
+.TestEntryCardFrontGauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    position: relative;
+    width: 352px;
+    height: 162px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 0;
+    left: 0; /* 기본적으로 게이지 시작점에 위치 */
+    align-items: center;
+    transition: left 1.7s ease; /* 부드러운 이동 애니메이션 */
+}
+
+.texts {
+    width: fit-content;
+    display: flex;
+    gap: 2px;
+    align-items: flex-start;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.Triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 24px solid var(--color-black); /* 삼각형의 색상과 높이 */
+    position: absolute;
+    top: 68px;
+}
