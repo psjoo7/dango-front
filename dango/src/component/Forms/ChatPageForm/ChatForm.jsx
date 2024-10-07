@@ -19,8 +19,11 @@ const ChatForm = () => {
   useEffect(() => {
     const fetchChatRoomDetails = async () => {
       try {
+        // const response = await axios.get(
+        //   `http://localhost:8888/api/chat/rooms/${roomId}`
+        // );
         const response = await axios.get(
-          `http://localhost:8888/api/chat/rooms/${roomId}`
+          `https://scit45dango.site/api/chat/rooms/${roomId}`
         );
         setChatRoomInfo(response.data);
         setMessages(response.data.messages); // 메시지 목록 초기화
