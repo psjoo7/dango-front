@@ -21,6 +21,8 @@ import GrammarTestPage from "./pages/GrammarTestPage/GrammarTestPage";
 import LevelTestFinishPage from "./pages/Login/LevelTestFinishPage/LevelTestFinishPage";
 import ListeningPage from "./pages/ListeningPage/ListeningPage";
 import TestEntryPage from "./pages/TestEntryPage/TestEntryPage";
+import DailyTestPage from "./pages/DailyTestPage/DailyTestPage";
+import ChatForm from "./component/Forms/ChatPageForm/ChatForm";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -119,6 +121,22 @@ function App() {
           element={
             <ProtectedRoute>
               <TestEntryPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/daily"
+          element={
+            <ProtectedRoute>
+              <DailyTestPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chat/rooms/:roomId"
+          element={
+            <ProtectedRoute>
+              <ChatForm />
             </ProtectedRoute>
           }
         />

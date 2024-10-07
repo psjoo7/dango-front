@@ -59,7 +59,8 @@ const LevelTestPage = () => {
     try {
       console.log("start : ", level, parseInt(userInfo.userId));
       const response = await axios.post(
-        "http://localhost:8888/api/quiz/levelup/jlpt/start",
+        // "http://localhost:8888/api/quiz/levelup/jlpt/start",
+        "https://scit45dango.site/api/quiz/levelup/jlpt/start",
         {
           level: level, // JLPT 레벨 설정
           userId: parseInt(userInfo.userId), // 사용자 ID
@@ -110,7 +111,8 @@ const LevelTestPage = () => {
     if (quizData.length < 20) {
       try {
         const response = await axios.post(
-          "http://localhost:8888/api/quiz/levelup/jlpt/next",
+          // "http://localhost:8888/api/quiz/levelup/jlpt/next",
+          "https://scit45dango.site/api/quiz/levelup/jlpt/next",
           { jlptGeneratedQuestions: quizData, level: level }
         );
         console.log("response", response);
@@ -144,7 +146,8 @@ const LevelTestPage = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://localhost:8888/api/quiz/levelup/jlpt/finish",
+          // "http://localhost:8888/api/quiz/levelup/jlpt/finish",
+          "https://scit45dango.site/api/quiz/levelup/jlpt/finish",
           { userId: userInfo.userId, level: level }
         );
         console.log("level updated : ", response);

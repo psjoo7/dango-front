@@ -1,0 +1,22 @@
+.Chatting {
+    width: 1490px;
+    height: 790px; /* 고정된 높이 */
+    padding: 50px 150px;
+    box-sizing: border-box;
+    overflow: auto; /* 스크롤은 가능하되, 스크롤바는 숨김 */
+}
+
+/* Webkit 기반 브라우저 (Chrome, Safari 등)의 스크롤바 숨기기 */
+.Chatting::-webkit-scrollbar {
+    display: none; /* 스크롤바를 보이지 않게 설정 */
+}
+
+/* Firefox에서 스크롤바 숨기기 */
+.Chatting {
+    scrollbar-width: none; /* 스크롤바를 보이지 않게 설정 (Firefox) */
+}
+
+/* IE 및 Edge의 경우 스크롤바를 숨기기 위한 추가 설정 */
+.Chatting {
+    -ms-overflow-style: none; /* IE 및 Edge에서 스크롤바를 숨김 */
+}

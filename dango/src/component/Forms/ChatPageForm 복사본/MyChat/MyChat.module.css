@@ -1,18 +1,20 @@
 .text {
     margin: 0;
+    word-wrap: break-word; /* 긴 단어 줄바꿈 */
+    overflow-wrap: break-word; /* 긴 단어 줄바꿈 */
+    word-break: break-all; /* 긴 단어가 상자를 넘지 않도록 줄바꿈 */
 }
 
 .textBox {
-    width: fit-content;
+    width: 100%; /* 너비를 상자에 맞추기 */
     font-weight: 600;
     display: flex;
     justify-content: flex-end;
 }
 
-
-.chatBox{
+.chatBox {
     width: fit-content;
-    max-width: 900px;
+    max-width: 900px; /* 최대 너비 설정 */
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -21,9 +23,11 @@
     background-color: var(--color-main);
     border: 3px solid var(--color-black);
     padding: 22px 25px;
-    max-width: 900px;
     text-align: left;
     font-size: 18px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all; /* 긴 단어가 상자를 넘지 않도록 줄바꿈 */
 }
 
 .parent {
@@ -41,10 +45,9 @@
     justify-content: flex-end;
 }
 
-.wrap{
+.wrap {
     display: flex;
     justify-content: flex-end;
     width: 1150px;
     height: fit-content;
-
 }

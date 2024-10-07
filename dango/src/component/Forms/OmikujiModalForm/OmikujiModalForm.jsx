@@ -29,7 +29,8 @@ const OmikujiModalForm = ({ propOnClose }) => {
       if (isOmikujiAvailable) {
         const user = JSON.parse(localStorage.getItem("user"));
         const response = await axios.post(
-          "http://localhost:8888/api/OMiKuZi/OmikuziList",
+          // "http://localhost:8888/api/OMiKuZi/OmikuziList",
+          "https://scit45dango.site/api/OMiKuZi/OmikuziList",
           { userId: user.userId }
         );
         console.log("오미쿠지 : ", response.data);

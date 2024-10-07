@@ -55,7 +55,8 @@ const ListeningPage = () => {
   const fetchFirstQuestion = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8888/api/quiz/listening/start",
+        // "http://localhost:8888/api/quiz/listening/start",
+        "https://scit45dango.site/api/quiz/listening/start",
         {
           level: level,
           userId: parseInt(userInfo.userId),
@@ -122,7 +123,8 @@ const ListeningPage = () => {
     if (quizData.length < 20) {
       try {
         const response = await axios.post(
-          "http://localhost:8888/api/quiz/listening/next",
+          // "http://localhost:8888/api/quiz/listening/next",
+          "https://scit45dango.site/api/quiz/listening/next",
           {
             generatedQuestions: quizData,
             studyContent: studyContent, // 프론트에서 받은 studyContent 전달
@@ -147,7 +149,6 @@ const ListeningPage = () => {
         // playAudio(parsedQuestions[currentIndex].content); // 새로운 문제 읽기
       } catch (error) {
         console.error("다음 문제로 이동 중 에러 발생: ", error);
-        let retryCount = 0;
         if (retryCount < 3) {
           console.log(`재시도 중... (${retryCount + 1}번째 시도)`);
           handleNextQuestion(retryCount + 1);
@@ -160,7 +161,8 @@ const ListeningPage = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://localhost:8888/api/quiz/listening/finish",
+          // "http://localhost:8888/api/quiz/listening/finish",
+          "https://scit45dango.site/api/quiz/listening/finish",
           {
             userId: userInfo.userId,
             level: level,

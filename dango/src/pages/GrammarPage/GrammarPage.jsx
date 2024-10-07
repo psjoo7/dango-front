@@ -40,8 +40,8 @@ const GrammarPage = () => {
       const type = "문법";
 
       const response = await axios.post(
-        "http://localhost:8888/api/study/grammar",
-        // "https://scit45dango.site/api/study/grammar",
+        // "http://localhost:8888/api/study/grammar",
+        "https://scit45dango.site/api/study/grammar",
         { level, userId, type }
       );
 
@@ -86,8 +86,8 @@ const GrammarPage = () => {
       const type = "문법";
 
       const response = await axios.post(
-        "http://localhost:8888/api/study/grammar",
-        // "https://scit45dango.site/api/study/grammar",
+        // "http://localhost:8888/api/study/grammar",
+        "https://scit45dango.site/api/study/grammar",
         { level, userId, type }
       );
 

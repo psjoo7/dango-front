@@ -40,8 +40,8 @@ const GrammarTestPageForm = () => {
       const userId = user.userId;
       const studyType = "문법";
       // 예시 백엔드 요청
-      await axios.post("http://localhost:8888/api/study/answer", {
-        // await axios.post("https://scit45dango.site/api/study/answer", {
+      // await axios.post("http://localhost:8888/api/study/answer", {
+      await axios.post("https://scit45dango.site/api/study/answer", {
         studyContentId,
         answer,
         userId,

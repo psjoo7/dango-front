@@ -30,8 +30,8 @@ const LoginPageForm = () => {
 
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/member/login", // 서버 환경의 경우
-        "http://localhost:8888/api/member/login", // 로컬 환경의 경우
+        "https://scit45dango.site/api/member/login", // 서버 환경의 경우
+        // "http://localhost:8888/api/member/login", // 로컬 환경의 경우
         formData,
         { withCredentials: true }
       );

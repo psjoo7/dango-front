@@ -32,7 +32,8 @@ const HomePage = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("user"));
       const response = await axios.post(
-        "http://localhost:8888/api/study/studyReview",
+        // "http://localhost:8888/api/study/studyReview",
+        "https://scit45dango.site/api/study/studyReview",
         { userId: userInfo.userId }
       );
       // response.data 배열을 가공하여 propIsAttendanceList 형태로 변환

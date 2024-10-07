@@ -1,0 +1,15 @@
+.ChatModalList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 400px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    overflow-y: scroll; /* 스크롤 가능하게 설정 */
+    scrollbar-width: none; /* 파이어폭스에서 스크롤바 숨기기 */
+    -ms-overflow-style: none;  /* IE에서 스크롤바 숨기기 */
+}
+
+.ChatModalList::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리에서 스크롤바 숨기기 */
+}
