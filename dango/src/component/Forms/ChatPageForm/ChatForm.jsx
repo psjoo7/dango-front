@@ -102,6 +102,7 @@ const ChatForm = () => {
               roomId={roomId}
               recipeTo={partnerUser.roomUserId} // 상대방의 ID 전달
               onSendMessage={handleSendMessage}
+              stompClient={stompClient}
             />
           </div>
         </div>
