@@ -31,7 +31,7 @@ const ChatBottom = ({
 
       // STOMP 메시지 전송
       stompClient.send(
-        `/app/chat/rooms/${roomId}/send`,
+        `https://scit45dango.site/app/chat/rooms/${roomId}/send`,
         {},
         JSON.stringify(message)
       );
