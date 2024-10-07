@@ -17,7 +17,7 @@ const ChatForm = () => {
   const userInfo = JSON.parse(localStorage.getItem("user"));
   const [chatRoomInfo, setChatRoomInfo] = useState(null);
   const [messages, setMessages] = useState([]); // 메시지 목록 상태 추가
-  let stompClient = null;
+  const [stompClient, setStompClient] = useState(null); // stompClient를 상태로 관리
 
   useEffect(() => {
     const fetchChatRoomDetails = async () => {
@@ -42,18 +42,20 @@ const ChatForm = () => {
   // WebSocket 연결 설정
   useEffect(() => {
     const socket = new SockJS("https://scit45dango.site/ws");
-    stompClient = Stomp.over(socket);
-    stompClient.connect({}, () => {
-      // 특정 채팅방 구독
-      stompClient.subscribe(`/topic/rooms/${roomId}`, (message) => {
+    const client = Stomp.over(socket);
+
+    client.connect({}, () => {
+      setStompClient(client); // stompClient를 설정하여 ChatBottom에 전달 가능하도록 함
+
+      client.subscribe(`/topic/rooms/${roomId}`, (message) => {
         const newMessage = JSON.parse(message.body);
         setMessages((prevMessages) => [...prevMessages, newMessage]);
       });
     });
 
     return () => {
-      if (stompClient) {
-        stompClient.disconnect();
+      if (client) {
+        client.disconnect();
       }
     };
   }, [roomId]);
@@ -98,12 +100,14 @@ const ChatForm = () => {
             myUserId={myUser.roomUserId} // 현재 사용자 ID 전달
           />
           <div className={styles.bottom}>
-            <ChatBottom
-              roomId={roomId}
-              recipeTo={partnerUser.roomUserId} // 상대방의 ID 전달
-              onSendMessage={handleSendMessage}
-              stompClient={stompClient}
-            />
+            {stompClient && ( // stompClient가 연결된 후에만 ChatBottom을 렌더링
+              <ChatBottom
+                roomId={roomId}
+                recipeTo={partnerUser.roomUserId}
+                onSendMessage={handleSendMessage}
+                stompClient={stompClient}
+              />
+            )}
           </div>
         </div>
       </div>
