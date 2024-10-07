@@ -5,11 +5,9 @@ import styles from "./ChatBottom.module.css";
 import { RegularText, DoubleText } from "../../../Text/";
 import Button from "../../../Buttons/RegularButton/RegularButton";
 
-const ChatBottom = ({ propPoint = "400", roomId }) => {
+const ChatBottom = ({ propPoint = "400", roomId, recipeTo, onSendMessage }) => {
+  const userInfo = JSON.parse(localStorage.getItem("user"));
   const [inputText, setInputText] = useState(""); // textarea의 입력값을 관리할 상태
-  useEffect(() => {
-    console.log(roomId);
-  }, [roomId]);
   const handleInputChange = (e) => {
     const value = e.target.value;
     setInputText(value); // 입력값 상태 업데이트
@@ -19,21 +17,28 @@ const ChatBottom = ({ propPoint = "400", roomId }) => {
     try {
       console.log("handleSend Worked!!!");
       const response = await axios.post(
-        `http://localhost:8888/api/chat/rooms/${String(roomId)}/send`,
+        // `http://localhost:8888/api/chat/rooms/${String(roomId)}/send`,
+        `https://scit45dango.site/api/chat/rooms/${String(roomId)}/send`,
         {
-          message: inputText,
+          from: userInfo.userId, // 현재 사용자의 ID
+          to: recipeTo, // 수신자 ID
+          text: inputText, // 메시지 내용
+          roomId: roomId, // 채팅방 ID
         }
       );
 
       if (response.status === 200) {
-        alert("Message sent successfully!");
-        setInputText(""); // 전송 후 입력란 초기화
+        const newMessage = {
+          id: response.data.id,
+          content: inputText,
+          writer: userInfo.userId,
+        };
+        onSendMessage(newMessage); // 부모 컴포넌트로 새 메시지 전달
+        setInputText(""); // 입력란 초기화
       } else {
-        console.log("handleSend ", roomId);
         alert("Failed to send message.");
       }
     } catch (error) {
-      console.log("handleSend ", roomId);
       console.error("Error sending message:", error);
       alert("Error sending message.");
     }
@@ -105,6 +110,8 @@ const ChatBottom = ({ propPoint = "400", roomId }) => {
 
 ChatBottom.propTypes = {
   roomId: PropTypes.string,
+  recipeTo: PropTypes.any,
+  onSendMessage: PropTypes.func.isRequired,
 };
 
 export default ChatBottom;
