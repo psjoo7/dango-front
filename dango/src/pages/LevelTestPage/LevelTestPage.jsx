@@ -100,6 +100,12 @@ const LevelTestPage = () => {
     console.log(`사용자가 선택한 값: ${choice}`);
     console.log("currentIndex", currentIndex);
     console.log("data  :  ", quizData);
+    console.log("answer amount: ", answerAmount);
+    if (quizData[currentIndex - 1].answer == choice) {
+      alert("정답");
+    } else {
+      alert("오답");
+    }
   };
 
   // 사용자가 다음을 누를때.
@@ -141,7 +147,7 @@ const LevelTestPage = () => {
           alert("문제를 불러오는 데 실패했습니다. 다시 시도해 주세요.");
         }
       }
-    } else if (answerAmount < 14) {
+    } else if (currentIndex >= 20 && answerAmount < 14) {
       moveToAgain();
     } else {
       try {
