@@ -9,20 +9,23 @@ import Chatting from "./Chatting/Chatting";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import SockJS from "sockjs-client";
+import { Stomp } from "@stomp/stompjs";
 
 const ChatForm = () => {
   const { roomId } = useParams();
   const userInfo = JSON.parse(localStorage.getItem("user"));
   const [chatRoomInfo, setChatRoomInfo] = useState(null);
   const [messages, setMessages] = useState([]); // 메시지 목록 상태 추가
+  let stompClient = null;
 
   useEffect(() => {
     const fetchChatRoomDetails = async () => {
       try {
-        // const response = await axios.get(
-        //   `http://localhost:8888/api/chat/rooms/${roomId}`
-        // );
         const response = await axios.get(
+          // const response = await axios.get(
+          //   `http://localhost:8888/api/chat/rooms/${roomId}`
+          // );
           `https://scit45dango.site/api/chat/rooms/${roomId}`
         );
         setChatRoomInfo(response.data);
@@ -34,6 +37,25 @@ const ChatForm = () => {
     };
 
     fetchChatRoomDetails();
+  }, [roomId]);
+
+  // WebSocket 연결 설정
+  useEffect(() => {
+    const socket = new SockJS("https://scit45dango.site/ws");
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, () => {
+      // 특정 채팅방 구독
+      stompClient.subscribe(`/topic/rooms/${roomId}`, (message) => {
+        const newMessage = JSON.parse(message.body);
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
+      });
+    });
+
+    return () => {
+      if (stompClient) {
+        stompClient.disconnect();
+      }
+    };
   }, [roomId]);
 
   const handleSendMessage = (newMessage) => {
