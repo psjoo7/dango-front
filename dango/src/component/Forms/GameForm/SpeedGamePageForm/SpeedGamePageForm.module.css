@@ -1,4 +1,4 @@
-.backGround{
+.SpeedGamePageForm{
     width: 1920px;
     height: 1080px;
     position: relative;
@@ -8,14 +8,13 @@
 
 .contents{
     width: 1790px;
-    height: 100%;
-    left: 130px;
-
-    position: absolute;
+    height: 1080px;
     display: flex;
-    align-items: center;
-    background-color: white;
-    transition: opacity 0.5s ease;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 130px;
+    padding-bottom: 75px;
+    box-sizing: border-box;
 }
 
 .middle{

@@ -23,6 +23,14 @@ import ListeningPage from "./pages/ListeningPage/ListeningPage";
 import TestEntryPage from "./pages/TestEntryPage/TestEntryPage";
 import DailyTestPage from "./pages/DailyTestPage/DailyTestPage";
 import ChatForm from "./component/Forms/ChatPageForm/ChatForm";
+import ChatGPTForm from "./component/Forms/ChatGPTPageForm/ChatGPTForm";
+import GameRankingPage from "./pages/Game/GameRankingPage/GameRankingPage";
+import ConnectionGamePage from "./pages/Game/ConnectionGamePage/ConnectionGamePage";
+import ConnectionGameRulePage from "./pages/Game/ConnectionGameRulePage/ConnectionGameRulePage";
+import SpeedGamePage from "./pages/Game/SpeedGamePage/SpeedGamePage";
+import SpeedGameRulePage from "./pages/Game/SpeedGameRulePage/SpeedGameRulePage";
+import ReviewContentPage from "./pages/ReviewContentPage/ReviewContentPage";
+import WeeklyTestPage from "./pages/WeeklyTestPage/WeeklyTestPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -133,10 +141,74 @@ function App() {
           }
         />
         <Route
+          path="/quiz/weekly"
+          element={
+            <ProtectedRoute>
+              <WeeklyTestPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/chat/rooms/:roomId"
           element={
             <ProtectedRoute>
               <ChatForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chat/gpt"
+          element={
+            <ProtectedRoute>
+              <ChatGPTForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/game/intro"
+          element={
+            <ProtectedRoute>
+              <GameRankingPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/game/connection/rule"
+          element={
+            <ProtectedRoute>
+              <ConnectionGameRulePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/game/connection/play"
+          element={
+            <ProtectedRoute>
+              <ConnectionGamePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/game/speed/rule"
+          element={
+            <ProtectedRoute>
+              <SpeedGameRulePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/game/speed/play/:roomId"
+          element={
+            <ProtectedRoute>
+              <SpeedGamePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/review/contents"
+          element={
+            <ProtectedRoute>
+              <ReviewContentPage />
             </ProtectedRoute>
           }
         />

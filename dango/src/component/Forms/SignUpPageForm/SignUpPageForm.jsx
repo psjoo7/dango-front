@@ -16,7 +16,11 @@ const SignUpPageForm = ({ className = "" }) => {
     nickname: "",
     userNationality: "",
     userSex: null,
+    verificationCode: "",
   });
+  const [verificationCode, setVerificationCode] = useState("");
+  const [userEmail, setUserEmail] = useState(formData.email);
+  const [isVerified, setIsVerified] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -73,6 +77,43 @@ const SignUpPageForm = ({ className = "" }) => {
     }
   };
 
+  const sendVerificationCode = async () => {
+    console.log("formvei", formData.verificationCode);
+    try {
+      const response = await axios.post(
+        // "http://localhost:8888/api/member/send-verification",
+        "https://scit45dango.site/member/send-verification",
+        {
+          email: formData.email,
+          code: formData.verificationCode,
+        }
+      );
+
+      alert("인증번호가 전송되었습니다.");
+      console.log("인증번호 전송 성공:", response.data);
+      setUserEmail(formData.email);
+    } catch (error) {
+      console.error("인증번호 전송 실패:", error.response.data);
+      alert("인증번호 전송에 실패했습니다.");
+    }
+  };
+
+  const verifyEmail = async () => {
+    try {
+      const response = await axios.post(
+        "https://scit45dango.site/api/member/verify",
+        // "http://localhost:8888/api/member/verify",
+        {
+          email: userEmail,
+          code: verificationCode,
+        }
+      );
+      console.log("인증 성공:", response.data);
+    } catch (error) {
+      console.error("인증 실패:", error.response.data);
+    }
+  };
+
   return (
     <div className={styles.SignUpPageForm}>
       <div className={styles.top}>
@@ -106,6 +147,7 @@ const SignUpPageForm = ({ className = "" }) => {
               propBorderRadius={"15px"}
               propWidth={"108px"}
               propHeight={"38px"}
+              propOnClick={sendVerificationCode}
             />
           </div>
           <RegularText
@@ -122,9 +164,12 @@ const SignUpPageForm = ({ className = "" }) => {
               propHeight={"38px"}
               propBorderRadius={"13px"}
               propLabelText={"인증번호 확인"}
+              propValue={formData.verificationCode}
+              propOnChange={handleInputChange}
               propLabelFontSize={"var(--font-body2)"}
               propInputFontSize={"var(--font-body3)"}
               propPlaceholder={"인증번호를 입력해 주세요."}
+              name={"verificationCode"}
             />
 
             <RegularButton
@@ -136,6 +181,7 @@ const SignUpPageForm = ({ className = "" }) => {
               propBorderRadius={"15px"}
               propWidth={"108px"}
               propHeight={"38px"}
+              propOnClick={verifyEmail}
             />
           </div>
 
@@ -182,6 +228,7 @@ const SignUpPageForm = ({ className = "" }) => {
 
         <div className={styles.fourthRow}>
           <InputText
+            propType="password"
             propWidth={"515px"}
             propHeight={"38px"}
             propBorderRadius={"13px"}
@@ -203,6 +250,7 @@ const SignUpPageForm = ({ className = "" }) => {
 
         <div className={styles.fifthRow}>
           <InputText
+            propType="password"
             propWidth={"515px"}
             propHeight={"38px"}
             propBorderRadius={"13px"}

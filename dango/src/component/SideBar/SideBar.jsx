@@ -86,10 +86,10 @@ const SideBar = ({
         <ProfileImage
           propImageCode={propProfileImageCode} // 이미지 파일명 동적으로 받음
           propAltText={"profile"}
-          propNavigatePath={"my_profile"}
+          propNavigatePath={"/member/profile"}
         />
         <DoubleText
-          propText1={userInfo.name} // 유저 이름 동적으로 받음
+          propText1={userInfo.nickname} // 유저 이름 동적으로 받음
           propText2={"님"}
           propText1FontSize={"var(--font-body1)"}
           propText2FontSize={"var(--font-body1)"}
@@ -130,7 +130,7 @@ const SideBar = ({
         <NavigationMenu
           propImgFileName={"Game.svg"}
           propAltText={"game side bar"}
-          propNavigatePath={"/game"}
+          propNavigatePath={"/game/intro"}
           propClassName={styles.menuItem} // 추가 스타일링 가능
         />
       </div>

@@ -13,6 +13,8 @@ const InCard3 = () => {
     navigate("/quiz/listening");
   };
 
+  const index = parseFloat(localStorage.getItem("currentListenIndex"), 10) || 0;
+  const rate = Math.round((index / 20) * 100);
   return (
     <div
       className={styles.homeInCard}
@@ -47,7 +49,7 @@ const InCard3 = () => {
       />
 
       <div className={styles.rate}>
-        <HomeCard1Rate />
+        <HomeCard1Rate propContent={rate} />
       </div>
     </div>
   );

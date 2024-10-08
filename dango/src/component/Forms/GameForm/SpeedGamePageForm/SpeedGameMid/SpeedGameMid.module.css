@@ -1,39 +1,56 @@
-.background{
+.background {
     display: flex;
-    flex-direction : column;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: auto;
 }
 
-.title{
+.title {
     width: auto;
     padding-bottom: 70px;
 }
 
-.count{
+.count {
     width: auto;
     display: flex;
     gap: 10px;
     padding-bottom: 10px;
 }
-.time{
+
+.time {
     width: auto;
     display: flex;
     gap: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 }
 
-.texts{
+.texts {
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: center;
 }
 
-.inputText{
+.inputText {
     font-family: var(--font-noto-sans);
     font-size: 30px;
     color: var(--color-black);
     font-weight: 700;
+    text-align: center; /* 텍스트 및 placeholder 가운데 정렬 */
+    padding: 0 20px; /* 텍스트가 양 끝에 붙지 않도록 패딩 */
+    box-sizing: border-box;
+    line-height: 60px; /* 높이에 맞춰 텍스트가 수직으로 가운데 정렬되도록 */
+    outline: none;
+    width: 250px;
+    height: 70px;
+    border: 5px solid var(--color-black);
+    border-radius : 30px;
+}
+
+
+.inputText::placeholder {
+    color: var(--color-gray3); /* placeholder 색상 블랙으로 설정 */
+    text-align: center; /* placeholder 가운데 정렬 */
+    opacity: 1;
 }

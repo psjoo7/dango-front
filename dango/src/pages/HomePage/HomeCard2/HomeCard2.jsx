@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import RegularText from "../../../component/Text/RegularText/RegularText";
 import HomeCard2List from "./HomeCard2List/HomeCard2List";
 import DoughnutChartDouble from "../../../component/DoughnutChartDouble/DoughnutChartDouble";
+import { LinkText } from "../../../component/Text";
 
-const HomeCard2 = ({ propListen = 0 }) => {
+const HomeCard2 = () => {
   // propWord를 상태로 관리
   const [propWord, setPropWord] = useState(
     parseFloat(localStorage.getItem("currentIndex"), 10) || 0
@@ -14,13 +15,18 @@ const HomeCard2 = ({ propListen = 0 }) => {
     parseFloat(localStorage.getItem("currentGrammerIndex"), 10) || 0
   );
 
+  const [propListen, setPropListen] = useState(
+    parseFloat(localStorage.getItem("currentListenIndex"), 10) || 0
+  );
   // setPropWord((propWord / 20) * 100);
   useEffect(() => {
     const wordProgress = (propWord / 20) * 100;
     const grammerProgress = (propGrammer / 3) * 100;
+    const listenProgress = (propListen / 20) * 100;
     // 반올림 적용하여 소수점 제거
     setPropWord(Math.min(Math.round(wordProgress), 100)); // 100이 최대치로 제한
     setPropGrammer(Math.min(Math.round(grammerProgress), 100)); // 100이 최대치로 제한
+    setPropListen(Math.min(Math.round(listenProgress), 100)); // 100이 최대치로 제한
   }, []);
 
   const nonProgress = 300 - propWord - propGrammer - propListen;
@@ -43,11 +49,12 @@ const HomeCard2 = ({ propListen = 0 }) => {
           propOuterListening={propListen}
         />
 
-        <RegularText
+        <LinkText
           propText={"대화하기"}
           propFontSize={"var(--font-large-title)"}
-          propFontWeight={700}
+          propFontWeight={"700"}
           propClassName={styles.talk}
+          propUrl="/chat/gpt"
         />
 
         <div className={styles.List}>

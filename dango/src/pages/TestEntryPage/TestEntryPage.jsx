@@ -50,7 +50,7 @@ const TestEntryPage = () => {
       propFirstLink="/quiz/daily"
       propSecondGaugePercentage={weekly} // 다른 값들은 임의로 설정된 것 유지
       propSecondBackImageCode="3_w"
-      propSecondLink="/review"
+      propSecondLink="/quiz/weekly"
       propThirdGaugePercentage={100}
       propThirdBackImageCode="4_w"
       propThirdLink="/word"

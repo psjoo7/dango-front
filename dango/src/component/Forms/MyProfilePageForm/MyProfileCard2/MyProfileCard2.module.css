@@ -1,0 +1,43 @@
+.card{
+    width: 527px;
+    height: 400px;
+    background-color: var(--color-white);
+    border: 5px solid var(--color-black);
+    border-radius: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.left{
+    padding-top: 17px;
+}
+
+.mid{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 25px;
+    gap: 20px;
+}
+
+.rate{
+    width: 244px;
+    height: 244px;
+    border: 5px solid var(--color-main);
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.right{
+    width: 96px;
+}
+
+.percent{
+    position: absolute;
+    top: 705px;
+}

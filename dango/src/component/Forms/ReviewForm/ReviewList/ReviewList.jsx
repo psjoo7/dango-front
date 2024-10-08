@@ -8,12 +8,12 @@ const ReviewList = ({ reviewDates }) => {
 
   // 단어 클릭 시 /review/wordDay{day} 경로로 이동
   const handleWordClick = (day) => {
-    navigate(`/review/wordDay${day}`); // day 값을 경로에 추가
+    navigate(`/review/contents`, { state: { day, type: "word" } }); // day 값을 경로에 추가
   };
 
   // 문법 클릭 시 /review/grammarDay{day} 경로로 이동
   const handleGrammarClick = (day) => {
-    navigate(`/review/grammarDay${day}`); // day 값을 경로에 추가
+    navigate(`/review/contents`, { state: { day, type: "grammer" } }); // day 값을 경로에 추가
   };
 
   return (
@@ -22,8 +22,8 @@ const ReviewList = ({ reviewDates }) => {
         <ReviewListElement
           key={index}
           propNumberText={date} // 1부터 시작하는 숫자를 전달
-          onWordClick={() => handleWordClick(index + 1)} // 단어 클릭 핸들러
-          onGrammarClick={() => handleGrammarClick(index + 1)} // 문법 클릭 핸들러
+          onWordClick={() => handleWordClick(date)} // 단어 클릭 핸들러
+          onGrammarClick={() => handleGrammarClick(date)} // 문법 클릭 핸들러
         />
       ))}
     </div>

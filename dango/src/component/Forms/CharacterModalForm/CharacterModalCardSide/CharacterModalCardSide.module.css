@@ -1,0 +1,39 @@
+.CharacterModalCardSide {
+    width: 317px;
+    height: 423px;
+    border-radius: 18px;
+    background: var(--color-white);
+    box-shadow: 0px 3px 11px 0px rgba(0, 0, 0, 0.50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px;
+    box-sizing: border-box;
+    position: relative; /* 자식 요소의 절대 위치를 기준으로 설정 */
+}
+
+.mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 47px;
+    padding-top: 14px;
+}
+
+.noText {
+    position: absolute;
+    top: 50%; /* 수직 중앙 */
+    left: 50%; /* 수평 중앙 */
+    transform: translate(-50%, -50%); /* 중앙 배치를 위해 이동 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    width: 317px;
+    transition: opacity 0.3s ease; /* 투명도 변화 애니메이션 */
+}
+
+.visible {
+    opacity: 1; /* 캐릭터가 있을 때 투명도 1 */
+}
+
+.hidden {
+    opacity: 0; /* 캐릭터가 없을 때 투명도 0 */
+}

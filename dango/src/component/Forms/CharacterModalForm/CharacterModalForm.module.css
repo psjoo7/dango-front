@@ -1,0 +1,76 @@
+/* 기존 스타일 유지 */
+.modalOverlay {
+    position: fixed;
+    width: 1920px;
+    height: 1080px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    width: 1150px;
+    height: 647px;
+    border-radius: 25px;
+    background: var(--color-white);
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.50);
+    box-sizing: border-box;
+    pointer-events: auto;
+    padding: 0 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* 닫기 버튼을 모달 내부에 상대적으로 배치하기 위함 */
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+/* 닫기 버튼 스타일 */
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background-color: transparent; /* 배경을 투명하게 설정 */
+    border: none;
+    font-size: 36px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+    padding: 0;
+    line-height: 1;
+    height: fit-content;
+    width: fit-content;
+    display: block;
+    transition: color 0.2s ease; /* 색상 변화에만 애니메이션을 추가 */
+}
+
+.closeButton:hover {
+    color: var(--color-gray3); /* hover 시 색상만 변경 */
+    background-color: transparent; /* 배경을 투명하게 설정 */
+}
+
+.closeButton:active {
+    transform: none; /* 클릭 시 이동하지 않도록 설정 */
+    background-color: transparent; /* 배경을 투명하게 설정 */
+}
+
+.cards{
+    display: flex;
+    gap: 45px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}

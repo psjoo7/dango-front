@@ -16,6 +16,7 @@ const ChatForm = () => {
   const { roomId } = useParams();
   const userInfo = JSON.parse(localStorage.getItem("user"));
   const [chatRoomInfo, setChatRoomInfo] = useState(null);
+  const [mileage, setMileage] = useState(userInfo.userMileage);
   const [messages, setMessages] = useState([]); // 메시지 목록 상태 추가
   const [stompClient, setStompClient] = useState(null); // stompClient를 상태로 관리
 
@@ -24,7 +25,7 @@ const ChatForm = () => {
       try {
         const response = await axios.get(
           // const response = await axios.get(
-          //   `http://localhost:8888/api/chat/rooms/${roomId}`
+          // `http://localhost:8888/api/chat/rooms/${roomId}`
           // );
           `https://scit45dango.site/api/chat/rooms/${roomId}`
         );
@@ -42,6 +43,7 @@ const ChatForm = () => {
   // WebSocket 연결 설정
   useEffect(() => {
     const socket = new SockJS("https://scit45dango.site/ws");
+    // const socket = new SockJS("http://localhost:8888/ws");
     const client = Stomp.over(socket);
 
     client.connect({}, () => {
@@ -106,6 +108,7 @@ const ChatForm = () => {
                 recipeTo={partnerUser.roomUserId}
                 onSendMessage={handleSendMessage}
                 stompClient={stompClient}
+                propPoint={mileage}
               />
             )}
           </div>

@@ -37,7 +37,7 @@ const InCard1 = () => {
 
       <Button
         propText={"단어"}
-        propColor="var(--color-damgoIvory)"
+        propColor="var(--color-dangoIvory)"
         propTextColor={"var(--color-black)"}
         propWidth={"100px"}
         propHeight={"40px"}

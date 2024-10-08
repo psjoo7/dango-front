@@ -8,6 +8,8 @@ import TestPageBottom from "../../component/Forms/TestPageForm/TestPageBottom/Te
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LoadingComponent from "../../component/LoadingComponent/LoadingComponent";
+import RegularButton from "../../component/Buttons/RegularButton/RegularButton";
+import AlertModalForm from "../../component/AlertModal/AlertModalForm";
 
 const ListeningPage = () => {
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const ListeningPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [retryCount, setRetryCount] = useState(0);
   const [studyContent, setStudyContent] = useState(null);
-
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const userInfo = JSON.parse(localStorage.getItem("user"));
   const level = sessionStorage.getItem("setLevel");
 
@@ -30,12 +32,8 @@ const ListeningPage = () => {
     }
   }, [quizData, retryCount]);
 
-  const moveToLevelFinishPage = () => {
-    navigate("/quiz/level_test_finish");
-  };
-
-  const moveToAgain = () => {
-    navigate("/member/sign_up_finish");
+  const moveToHomePage = () => {
+    navigate("/home");
   };
 
   const cleanAndParseJSON = (question) => {
@@ -119,8 +117,8 @@ const ListeningPage = () => {
     if (selectedValue == quizData[currentIndex - 1].answer) {
       setAnswerAmount(answerAmount + 1);
     }
-
-    if (quizData.length < 20) {
+    localStorage.setItem("currentListenIndex", currentIndex);
+    if (quizData.length < 22) {
       try {
         const response = await axios.post(
           // "http://localhost:8888/api/quiz/listening/next",
@@ -156,8 +154,6 @@ const ListeningPage = () => {
           alert("문제를 불러오는 데 실패했습니다. 다시 시도해 주세요.");
         }
       }
-    } else if (answerAmount < 14) {
-      moveToAgain();
     } else {
       try {
         const response = await axios.post(
@@ -168,7 +164,7 @@ const ListeningPage = () => {
             level: level,
           }
         );
-        moveToLevelFinishPage();
+        moveToHomePage();
       } catch (error) {
         console.error("레벨 업데이트 중 에러 발생: ", error);
         alert("레벨 업데이트 중 에러 발생했습니다.");
@@ -178,6 +174,14 @@ const ListeningPage = () => {
 
   if (isLoading) {
     return <LoadingComponent />;
+  }
+
+  // 모달 창 닫기
+  const closeChatModal = () => {
+    setIsChatModalOpen(false);
+  };
+  if (isChatModalOpen) {
+    return <AlertModalForm propOnClose={closeChatModal} />;
   }
 
   return (
@@ -207,25 +211,21 @@ const ListeningPage = () => {
           />
         }
       />
-
-      {/* 문제와 선택지를 표시하는 컴포넌트 */}
       <TestPageForm
         propChoice1={quizData[currentIndex - 1]?.options[0]}
         propChoice2={quizData[currentIndex - 1]?.options[1]}
         propChoice3={quizData[currentIndex - 1]?.options[2]}
         propChoice4={quizData[currentIndex - 1]?.options[3]}
         propQuizCount={`${currentIndex}`}
-        propQuiz={quizData[currentIndex - 1]?.content}
+        // propQuiz={quizData[currentIndex - 1]?.content}
+        propQuiz={"다음을 듣고 가장 적절한 대답을 고르시오."}
         propChoiceSelect={handleSelectedChoice}
         selectedChoice={selectedChoice}
       />
-
-      {/* Play 버튼 추가 */}
-      <button onClick={() => playAudio(quizData[currentIndex - 1].content)}>
-        문제 듣기
-      </button>
-
-      {/* 하단의 '다음 문제' 또는 '제출' 버튼 */}
+      <RegularButton
+        propOnClick={() => playAudio(quizData[currentIndex - 1].content)}
+        propText="듣기"
+      />
       <TestPageBottom onNextQuestion={handleNextQuestion} />
     </div>
   );

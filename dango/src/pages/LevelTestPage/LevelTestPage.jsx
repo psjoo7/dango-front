@@ -147,7 +147,7 @@ const LevelTestPage = () => {
           alert("문제를 불러오는 데 실패했습니다. 다시 시도해 주세요.");
         }
       }
-    } else if (currentIndex >= 20 && answerAmount < 14) {
+    } else if (currentIndex > 20 && answerAmount < 14) {
       moveToAgain();
     } else {
       try {

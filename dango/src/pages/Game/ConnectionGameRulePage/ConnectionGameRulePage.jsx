@@ -3,12 +3,11 @@ import React from "react";
 import ConnectionGameRulePageForm from "../../../component/Forms/GameForm/ConnectionGameRulePageForm/ConnectionGameRulePageForm";
 
 const ConnectionGameRulePage = () => {
-    return (
-        <div>
-            <ConnectionGameRulePageForm/>
-
-        </div>
-    );
+  return (
+    <div>
+      <ConnectionGameRulePageForm />
+    </div>
+  );
 };
 
 export default ConnectionGameRulePage;
