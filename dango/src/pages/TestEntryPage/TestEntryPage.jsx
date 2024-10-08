@@ -16,7 +16,7 @@ const TestEntryPage = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("user"));
       const response = await axios.post(
-        // "http://localhost:8888/api/member/dates",
+        // "https://scit45dango.site/api/member/dates",
         "https://scit45dango.site/api/member/dates",
         { userId: userInfo.userId }
       );
@@ -53,7 +53,7 @@ const TestEntryPage = () => {
       propSecondLink="/quiz/weekly"
       propThirdGaugePercentage={100}
       propThirdBackImageCode="4_w"
-      propThirdLink="/word"
+      propThirdLink="/quiz/levelup"
     />
   );
 };

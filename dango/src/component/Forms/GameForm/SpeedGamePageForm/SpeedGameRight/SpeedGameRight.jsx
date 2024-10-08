@@ -12,7 +12,7 @@ const SpeedGameRight = ({
   propH5Color = "var(--color-main)", // HP5 색상 기본값
   propAnswerText = "정답", // 정답 텍스트 기본값
   // CharacterMy 컴포넌트에 전달할 모든 props
-  propCharacterCode = "2_m_c", // 캐릭터 이미지 코드
+  propCharacterCode = "2_m", // 캐릭터 이미지 코드
   propShowHeart = true, // 하트 이미지 표시 여부
   propShowRain = true, // 레인 이미지 표시 여부
   propShowLose = false, // 패배 이미지 표시 여부

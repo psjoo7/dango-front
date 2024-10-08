@@ -42,7 +42,7 @@ const DailyTestPage = () => {
   const fetchFirstQuestion = async () => {
     try {
       const response = await axios.post(
-        // "http://localhost:8888/api/quiz/daily/start",
+        // "https://scit45dango.site/api/quiz/daily/start",
         "https://scit45dango.site/api/quiz/daily/start",
         { userId: parseInt(userInfo.userId) }
       );
@@ -89,7 +89,7 @@ const DailyTestPage = () => {
     if (quizData.length < studyContent.length) {
       try {
         const response = await axios.post(
-          // "http://localhost:8888/api/quiz/daily/next",
+          // "https://scit45dango.site/api/quiz/daily/next",
           "https://scit45dango.site/api/quiz/daily/next",
           {
             generatedQuestions: quizData,

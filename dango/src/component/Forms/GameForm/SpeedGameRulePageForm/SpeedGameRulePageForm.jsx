@@ -17,7 +17,7 @@ const SpeedGameRulePageForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8888/api/game/match",
+        "https://scit45dango.site/api/game/match",
         { userId: userInfo.userId }
       );
 
@@ -28,7 +28,7 @@ const SpeedGameRulePageForm = () => {
 
         const interval = setInterval(async () => {
           const checkResponse = await axios.post(
-            "http://localhost:8888/api/game/match",
+            "https://scit45dango.site/api/game/match",
             { userId: userInfo.userId }
           );
 

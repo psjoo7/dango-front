@@ -18,7 +18,7 @@ const ChatModalForm = ({ onClose, propPostChatList, propMyImageCode }) => {
   const createNewRoom = async () => {
     try {
       const response = await axios.post(
-        // "http://localhost:8888/api/chat/rooms",
+        // "https://scit45dango.site/api/chat/rooms",
         "https://scit45dango.site/api/chat/rooms",
         {
           userId: parseInt(userInfo.userId),

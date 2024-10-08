@@ -12,7 +12,7 @@ const SpeedGameLeft = ({
   propH5Color = "var(--color-main)", // HP5 색상 기본값
   propAnswerText = "정답", // 정답 텍스트 기본값
   // CharacterPartner 컴포넌트에 전달할 모든 props
-  propCharacterCode = "2_m_c", // 캐릭터 이미지 코드
+  propCharacterCode = "2_m", // 캐릭터 이미지 코드
   propShowHeart = true, // 하트 이미지 표시 여부
   propShowRain = false, // 레인 이미지 표시 여부
   propPartnerUserName = "파트너", // 파트너의 유저 이름

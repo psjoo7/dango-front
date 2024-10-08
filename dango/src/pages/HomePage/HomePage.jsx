@@ -32,7 +32,7 @@ const HomePage = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("user"));
       const response = await axios.post(
-        // "http://localhost:8888/api/study/studyReview",
+        // "https://scit45dango.site/api/study/studyReview",
         "https://scit45dango.site/api/study/studyReview",
         { userId: userInfo.userId }
       );

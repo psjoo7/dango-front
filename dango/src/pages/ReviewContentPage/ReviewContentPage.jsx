@@ -17,7 +17,7 @@ const ReviewContentPage = () => {
   const handle = async () => {
     try {
       const response = await axios.post(
-        // "http://localhost:8888/api/study/studyReviewByDateAndType",
+        // "https://scit45dango.site/api/study/studyReviewByDateAndType",
         "https://scit45dango.site/api/study/studyReviewByDateAndType",
         { userId: userInfo.userId, date: day, type: type }
       );
@@ -36,7 +36,7 @@ const ReviewContentPage = () => {
   };
   useEffect(() => {
     handle();
-  });
+  }, []);
 
   // 오늘 날짜를 "MM월 DD일" 형태로 포맷팅하는 함수
   const getFormattedDate = () => {

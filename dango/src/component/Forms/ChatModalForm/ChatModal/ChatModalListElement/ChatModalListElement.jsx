@@ -21,7 +21,7 @@ const ChatModalListElement = ({
   const handleClick = async () => {
     try {
       // propNavigate를 이용해 POST 요청 보냄
-      // const response = await axios.post("http://localhost:8888" + propNavigate);
+      // const response = await axios.post("https://scit45dango.site" + propNavigate);
       const response = await axios.post(
         "https://scit45dango.site" + propNavigate
       );

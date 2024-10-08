@@ -31,6 +31,7 @@ import SpeedGamePage from "./pages/Game/SpeedGamePage/SpeedGamePage";
 import SpeedGameRulePage from "./pages/Game/SpeedGameRulePage/SpeedGameRulePage";
 import ReviewContentPage from "./pages/ReviewContentPage/ReviewContentPage";
 import WeeklyTestPage from "./pages/WeeklyTestPage/WeeklyTestPage";
+import LevelUpTest from "./pages/LevelUpTest/LevelUpTest";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("user");
@@ -145,6 +146,14 @@ function App() {
           element={
             <ProtectedRoute>
               <WeeklyTestPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz/levelup"
+          element={
+            <ProtectedRoute>
+              <LevelUpTest />
             </ProtectedRoute>
           }
         />

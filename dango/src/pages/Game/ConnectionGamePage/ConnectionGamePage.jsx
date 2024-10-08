@@ -17,7 +17,7 @@ const ConnectionGamePage = () => {
 
     try {
       const response = await axios.post(
-        // "http://localhost:8888/api/game/wordRelay/relay",
+        // "https://scit45dango.site/api/game/wordRelay/relay",
         "https://scit45dango.site/api/game/wordRelay/relay",
         { word: answer }
       );
@@ -51,7 +51,7 @@ const ConnectionGamePage = () => {
   const getStarted = async () => {
     try {
       const response = await axios.post(
-        // "http://localhost:8888/api/game/wordRelay/start",
+        // "https://scit45dango.site/api/game/wordRelay/start",
         "https://scit45dango.site/api/game/wordRelay/start",
         { userId: userInfo.userId }
       );
@@ -67,7 +67,7 @@ const ConnectionGamePage = () => {
   const updateMileageAndRanking = async (score) => {
     try {
       const response = await axios.post(
-        // "http://localhost:8888/api/game/wordRelay/result",
+        // "https://scit45dango.site/api/game/wordRelay/result",
         "https://scit45dango.site/api/game/wordRelay/result",
         {
           userId: userInfo.userId,

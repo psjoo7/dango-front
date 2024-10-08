@@ -35,19 +35,19 @@ const SpeedGameMid = ({
 
       <div className={styles.texts}>
         <div className={styles.count}>
-          <RegularText
+          {/* <RegularText
             propText="남은 문제 :"
             propColor="var(--color-gray3)"
             propFontSize={"var(--font-title3)"}
-          />
-          <DoubleText
+          /> */}
+          {/* <DoubleText
             propText1={propRemainingQuestions}
             propText2={"/10"}
             propText1Color={"var(--color-gray3)"}
             propText2Color={"var(--color-gray3)"}
             propText1FontSize={"var(--font-title3)"}
             propText2FontSize={"var(--font-title3)"}
-          />
+          /> */}
         </div>
 
         <div className={styles.time}>
