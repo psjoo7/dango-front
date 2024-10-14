@@ -23,7 +23,7 @@ const SpeedGamePage = () => {
 
   // WebSocket 연결을 초기화하는 함수
   const initializeWebSocket = () => {
-    socketRef.current = new SockJS("https://scit45dango.site/ws");
+    socketRef.current = new SockJS("http://localhost:8888/ws");
     stompClientRef.current = Stomp.over(socketRef.current);
 
     stompClientRef.current.connect({}, () => {
@@ -76,7 +76,7 @@ const SpeedGamePage = () => {
     if (answer === correctAnswer) {
       try {
         await axios.post(
-          `https://scit45dango.site/api/game/decreaseOpponentHP/${roomId}`
+          `http://localhost:8888/api/game/decreaseOpponentHP/${roomId}`
         );
         setOpponentHP((prevHP) => prevHP - 1);
 
@@ -98,7 +98,7 @@ const SpeedGamePage = () => {
   const handleMissedAnswer = async () => {
     try {
       await axios.post(
-        `https://scit45dango.site/api/game/decreaseOpponentHP/${roomId}`
+        `http://localhost:8888/api/game/decreaseOpponentHP/${roomId}`
       );
       setUserHP((prevHP) => prevHP - 1);
       setOpponentHP((prevHP) => prevHP - 1);

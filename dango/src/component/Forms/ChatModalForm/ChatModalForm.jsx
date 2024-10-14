@@ -18,8 +18,8 @@ const ChatModalForm = ({ onClose, propPostChatList, propMyImageCode }) => {
   const createNewRoom = async () => {
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/chat/rooms",
-        "https://scit45dango.site/api/chat/rooms",
+        // "http://localhost:8888/api/chat/rooms",
+        "http://localhost:8888/api/chat/rooms",
         {
           userId: parseInt(userInfo.userId),
           nationality: userNationality, // userNationality를 서버로 보냅니다.

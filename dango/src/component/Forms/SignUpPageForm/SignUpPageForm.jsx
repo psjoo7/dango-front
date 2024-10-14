@@ -21,6 +21,9 @@ const SignUpPageForm = ({ className = "" }) => {
   const [verificationCode, setVerificationCode] = useState("");
   const [userEmail, setUserEmail] = useState(formData.email);
   const [isVerified, setIsVerified] = useState(false);
+  const [isSended, setIsSended] = useState(false);
+  const [isNickAble, setIsNickAble] = useState(false);
+  const [isPasswordAble, setIsPasswordAble] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,8 +48,7 @@ const SignUpPageForm = ({ className = "" }) => {
     try {
       // 서버로 회원가입 요청 전송
       const response = await axios.post(
-        "https://scit45dango.site/api/member/join", // 서버 환경의 경우
-        // "https://scit45dango.site/api/member/join", // 로컬 환경의 경우
+        "http://localhost:8888/api/member/join", // 서버 환경의 경우
         {
           userEmail: formData.email,
           userPassword: formData.userPassword,
@@ -59,8 +61,7 @@ const SignUpPageForm = ({ className = "" }) => {
       if (response.status === 201) {
         alert("회원가입에 성공했습니다.");
         const response = await axios.post(
-          "https://scit45dango.site/api/member/login", // 서버 환경의 경우
-          // "https://scit45dango.site/api/member/login", // 로컬 환경의 경우
+          "http://localhost:8888/api/member/login",
           {
             userEmail: formData.email,
             userPassword: formData.userPassword,
@@ -81,8 +82,7 @@ const SignUpPageForm = ({ className = "" }) => {
     console.log("formvei", formData.verificationCode);
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/member/send-verification",
-        "https://scit45dango.site/member/send-verification",
+        "http://localhost:8888/api/member/send-verification",
         {
           email: formData.email,
           code: formData.verificationCode,
@@ -90,6 +90,7 @@ const SignUpPageForm = ({ className = "" }) => {
       );
 
       alert("인증번호가 전송되었습니다.");
+      setIsSended(true);
       console.log("인증번호 전송 성공:", response.data);
       setUserEmail(formData.email);
     } catch (error) {
@@ -98,20 +99,13 @@ const SignUpPageForm = ({ className = "" }) => {
     }
   };
 
-  const verifyEmail = async () => {
-    try {
-      const response = await axios.post(
-        "https://scit45dango.site/api/member/verify",
-        // "https://scit45dango.site/api/member/verify",
-        {
-          email: userEmail,
-          code: verificationCode,
-        }
-      );
-      console.log("인증 성공:", response.data);
-    } catch (error) {
-      console.error("인증 실패:", error.response.data);
-    }
+  const verifyEmail = () => {
+    alert("인증번호가 확인되었습니다.");
+    setIsVerified(true);
+  };
+  const verifyNick = () => {
+    alert("닉네임 사용 가능합니다.");
+    setIsNickAble(true);
   };
 
   return (
@@ -150,11 +144,14 @@ const SignUpPageForm = ({ className = "" }) => {
               propOnClick={sendVerificationCode}
             />
           </div>
-          <RegularText
-            text={"인증번호 보냈습니다."}
-            propFontSize={"var(--font-body3)"}
-            propFontWeight={700}
-          />
+          {isSended && (
+            <RegularText
+              propText={"인증번호 보냈습니다."}
+              propFontSize={"var(--font-body3)"}
+              propTextColor={"var(--color-black)"}
+              propFontWeight={700}
+            />
+          )}
         </div>
 
         <div className={styles.secondRow}>
@@ -184,12 +181,14 @@ const SignUpPageForm = ({ className = "" }) => {
               propOnClick={verifyEmail}
             />
           </div>
-
-          <RegularText
-            text={"인증번호가 확인 되었습니다."}
-            propFontSize={"var(--font-body3)"}
-            propFontWeight={700}
-          />
+          {isVerified && (
+            <RegularText
+              propText={"인증번호가 확인 되었습니다."}
+              propFontSize={"var(--font-body3)"}
+              propTextColor={"var(--color-black)"}
+              propFontWeight={700}
+            />
+          )}
         </div>
 
         <div className={styles.thirdRow}>
@@ -216,14 +215,18 @@ const SignUpPageForm = ({ className = "" }) => {
               propBorderRadius={"15px"}
               propWidth={"108px"}
               propHeight={"38px"}
+              propOnClick={verifyNick}
             />
           </div>
 
-          <RegularText
-            text={"사용 가능한 닉네임 입니다."}
-            propFontSize={"var(--font-body3)"}
-            propFontWeight={700}
-          />
+          {isNickAble && (
+            <RegularText
+              propText={"사용 가능한 닉네임 입니다."}
+              propFontSize={"var(--font-body3)"}
+              propTextColor={"var(--color-black)"}
+              propFontWeight={700}
+            />
+          )}
         </div>
 
         <div className={styles.fourthRow}>
@@ -241,11 +244,13 @@ const SignUpPageForm = ({ className = "" }) => {
             name={"userPassword"}
           />
 
-          <RegularText
-            text={"사용 가능한 비밀번호 입니다."}
-            propFontSize={"var(--font-body3)"}
-            propFontWeight={700}
-          />
+          {isPasswordAble && (
+            <RegularText
+              text={"사용 가능한 비밀번호 입니다."}
+              propFontSize={"var(--font-body3)"}
+              propFontWeight={700}
+            />
+          )}
         </div>
 
         <div className={styles.fifthRow}>

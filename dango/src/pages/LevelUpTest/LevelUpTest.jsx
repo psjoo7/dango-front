@@ -44,7 +44,7 @@ const LevelUpTest = () => {
   const fetchFirstQuestion = async () => {
     try {
       const response = await axios.post(
-        "https://scit45dango.site/api/quiz/weekly/start",
+        "http://localhost:8888/api/quiz/weekly/start",
         { userId: parseInt(userInfo.userId) }
       );
       const parsedQuestions = response.data.questions
@@ -97,7 +97,7 @@ const LevelUpTest = () => {
     if (quizData.length < studyContent.length) {
       try {
         const response = await axios.post(
-          "https://scit45dango.site/api/quiz/weekly/next",
+          "http://localhost:8888/api/quiz/weekly/next",
           {
             generatedQuestions: quizData,
             studyContent: studyContent,

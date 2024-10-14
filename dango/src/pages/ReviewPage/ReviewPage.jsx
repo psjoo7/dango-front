@@ -18,8 +18,8 @@ const ReviewPage = () => {
   const handleReviewDates = async () => {
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/study/studyReview",
-        "https://scit45dango.site/api/study/studyReview",
+        // "http://localhost:8888/api/study/studyReview",
+        "http://localhost:8888/api/study/studyReview",
         { userId: userInfo.userId }
       );
       console.log("review Dates : ", response.data);

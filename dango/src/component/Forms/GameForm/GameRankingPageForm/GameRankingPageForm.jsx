@@ -14,16 +14,16 @@ const GameRankingPageForm = () => {
           propFirstUserScore="200"
           propFirstProfileImage="5_w"
           propSecondUserName="Jane"
-          propSecondUserScore="120"
+          propSecondUserScore="170"
           propSecondProfileImage="2_m"
           propThirdUserName="Jake"
-          propThirdUserScore="100"
+          propThirdUserScore="160"
           propThirdProfileImage="1_m"
-          propFourthUserName="Mike"
-          propFourthUserScore="95"
+          propFourthUserName="당고"
+          propFourthUserScore="150"
           propFourthProfileImage="1_w"
           propFifthUserName="Emily"
-          propFifthUserScore="200"
+          propFifthUserScore="100"
           propFifthProfileImage="3_w"
           propSixthUserName="Steve"
           propSixthUserScore="85"
@@ -35,9 +35,9 @@ const GameRankingPageForm = () => {
           propEighthUserScore="75"
           propEighthProfileImage="8_m"
           propMyImageCode={"1_w"}
-          propMyUserName={"줄리줄리줄리"}
+          propMyUserName={"당고"}
           propMyUserScore={"150"}
-          propMyUserRank={"100"}
+          propMyUserRank={"4"}
           propButtonLink={"/game/speed/rule"}
         />
         <div className={styles.maincharacter}>
@@ -63,7 +63,7 @@ const GameRankingPageForm = () => {
           propFourthUserScore="95"
           propFourthProfileImage="1_w"
           propFifthUserName="Emily"
-          propFifthUserScore="200"
+          propFifthUserScore="90"
           propFifthProfileImage="3_w"
           propSixthUserName="Steve"
           propSixthUserScore="85"
@@ -75,9 +75,9 @@ const GameRankingPageForm = () => {
           propEighthUserScore="75"
           propEighthProfileImage="8_m"
           propMyImageCode={"1_w"}
-          propMyUserName={"줄리"}
-          propMyUserScore={"150"}
-          propMyUserRank={"100"}
+          propMyUserName={"당고"}
+          propMyUserScore={"60"}
+          propMyUserRank={"10"}
           propButtonLink={"/game/connection/rule"}
         />
       </div>

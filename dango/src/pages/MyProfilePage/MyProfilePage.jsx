@@ -11,8 +11,8 @@ const MyProfilePage = () => {
   const fetchAttendanceRate = async () => {
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/member/dates",
-        "https://scit45dango.site/api/member/dates",
+        // "http://localhost:8888/api/member/dates",
+        "http://localhost:8888/api/member/dates",
         { userId: userInfo.userId }
       );
       setAttendance(response.data);
@@ -23,8 +23,8 @@ const MyProfilePage = () => {
   const fetchCompletionRate = async () => {
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/member/CompletionRateData",
-        "https://scit45dango.site/api/member/CompletionRateData",
+        // "http://localhost:8888/api/member/CompletionRateData",
+        "http://localhost:8888/api/member/CompletionRateData",
         { userId: userInfo.userId }
       );
       setCompletionRateData(response.data.percentage);

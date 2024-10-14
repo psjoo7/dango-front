@@ -42,8 +42,8 @@ const WeeklyTestPage = () => {
   const fetchFirstQuestion = async () => {
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/quiz/weekly/start",
-        "https://scit45dango.site/api/quiz/weekly/start",
+        // "http://localhost:8888/api/quiz/weekly/start",
+        "http://localhost:8888/api/quiz/weekly/start",
         { userId: parseInt(userInfo.userId) }
       );
       const parsedQuestions = response.data.questions
@@ -89,8 +89,8 @@ const WeeklyTestPage = () => {
     if (quizData.length < studyContent.length) {
       try {
         const response = await axios.post(
-          //   "https://scit45dango.site/api/quiz/weekly/next",
-          "https://scit45dango.site/api/quiz/weekly/next",
+          //   "http://localhost:8888/api/quiz/weekly/next",
+          "http://localhost:8888/api/quiz/weekly/next",
           {
             generatedQuestions: quizData,
             studyContent: studyContent, // 프론트에서 받은 studyContent 전달

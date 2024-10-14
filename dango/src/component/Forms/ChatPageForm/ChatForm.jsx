@@ -24,10 +24,7 @@ const ChatForm = () => {
     const fetchChatRoomDetails = async () => {
       try {
         const response = await axios.get(
-          // const response = await axios.get(
-          // `https://scit45dango.site/api/chat/rooms/${roomId}`
-          // );
-          `https://scit45dango.site/api/chat/rooms/${roomId}`
+          `http://localhost:8888/api/chat/rooms/${roomId}`
         );
         setChatRoomInfo(response.data);
         setMessages(response.data.messages); // 메시지 목록 초기화
@@ -42,8 +39,7 @@ const ChatForm = () => {
 
   // WebSocket 연결 설정
   useEffect(() => {
-    const socket = new SockJS("https://scit45dango.site/ws");
-    // const socket = new SockJS("https://scit45dango.site/ws");
+    const socket = new SockJS("http://localhost:8888/ws");
     const client = Stomp.over(socket);
 
     client.connect({}, () => {

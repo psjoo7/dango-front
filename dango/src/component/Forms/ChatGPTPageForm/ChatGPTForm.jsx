@@ -26,8 +26,8 @@ const ChatGPTForm = () => {
     addMessage("user", message);
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/gptChat/studyChat",
-        "https://scit45dango.site/api/gptChat/studyChat",
+        // "http://localhost:8888/api/gptChat/studyChat",
+        "http://localhost:8888/api/gptChat/studyChat",
         {
           userSentence: message,
           userId,
@@ -51,8 +51,8 @@ const ChatGPTForm = () => {
   const handleNext = async () => {
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/gptChat/gptStudyChat",
-        "https://scit45dango.site/api/gptChat/gptStudyChat",
+        // "http://localhost:8888/api/gptChat/gptStudyChat",
+        "http://localhost:8888/api/gptChat/gptStudyChat",
         {
           userId,
         }
@@ -75,8 +75,8 @@ const ChatGPTForm = () => {
     const fetchInitialMessage = async () => {
       try {
         const response = await axios.post(
-          // "https://scit45dango.site/api/gptChat/gptStudyChat",
-          "https://scit45dango.site/api/gptChat/gptStudyChat",
+          // "http://localhost:8888/api/gptChat/gptStudyChat",
+          "http://localhost:8888/api/gptChat/gptStudyChat",
           {
             userId,
           }

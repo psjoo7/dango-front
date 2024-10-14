@@ -12,7 +12,7 @@ const Chatting = ({ messages, myUserId }) => {
       {messages.map((message, index) =>
         message.writer === myUserId ? (
           <MyChat
-            key={message.id || `myMessage-${index}`} // id가 null일 경우 index를 이용한 고유 key 설정
+            key={message.id} // id가 null일 경우 index를 이용한 고유 key 설정
             propMyImage={"4_w"}
             propMyChat={message.content}
           />

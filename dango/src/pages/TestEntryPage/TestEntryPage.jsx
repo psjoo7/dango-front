@@ -16,8 +16,8 @@ const TestEntryPage = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("user"));
       const response = await axios.post(
-        // "https://scit45dango.site/api/member/dates",
-        "https://scit45dango.site/api/member/dates",
+        // "http://localhost:8888/api/member/dates",
+        "http://localhost:8888/api/member/dates",
         { userId: userInfo.userId }
       );
       console.log(response);

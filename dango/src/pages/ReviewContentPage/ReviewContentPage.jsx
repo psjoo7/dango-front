@@ -17,8 +17,8 @@ const ReviewContentPage = () => {
   const handle = async () => {
     try {
       const response = await axios.post(
-        // "https://scit45dango.site/api/study/studyReviewByDateAndType",
-        "https://scit45dango.site/api/study/studyReviewByDateAndType",
+        // "http://localhost:8888/api/study/studyReviewByDateAndType",
+        "http://localhost:8888/api/study/studyReviewByDateAndType",
         { userId: userInfo.userId, date: day, type: type }
       );
       console.log("handle : ", response.data);

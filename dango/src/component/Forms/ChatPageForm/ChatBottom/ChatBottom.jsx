@@ -37,11 +37,11 @@ const ChatBottom = ({
       );
 
       // 새로운 메시지를 부모 컴포넌트로 전달
-      onSendMessage({
-        id: Date.now(),
-        content: inputText,
-        writer: userInfo.userId,
-      });
+      // onSendMessage({
+      //   id: Date.now(),
+      //   content: inputText,
+      //   writer: userInfo.userId,
+      // });
 
       // 전송 후 입력란 초기화
       setInputText("");

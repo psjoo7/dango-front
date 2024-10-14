@@ -27,8 +27,8 @@ const SideBar = ({
   // 로그아웃 함수
   const removeUserInfo = () => {
     axios
-      .post("https://scit45dango.site/logout") // 서버 환경의 경우
-      // .post("https://scit45dango.site/logout") // 로컬 환경의 경우
+      .post("http://localhost:8888/logout") // 서버 환경의 경우
+      // .post("http://localhost:8888/logout") // 로컬 환경의 경우
       .then((response) => {
         // 로컬 스토리지에서 사용자 정보 삭제
         // localStorage.removeItem("user");
@@ -44,8 +44,8 @@ const SideBar = ({
   const handleChatClick = async () => {
     try {
       const response = await axios.get(
-        // `https://scit45dango.site/chat/rooms/user/${userInfo.userId}`
-        `https://scit45dango.site/chat/rooms/user/${userInfo.userId}`
+        // `http://localhost:8888/chat/rooms/user/${userInfo.userId}`
+        `http://localhost:8888/chat/rooms/user/${userInfo.userId}`
       );
       const chatRooms = response.data;
       console.log(chatRooms);
